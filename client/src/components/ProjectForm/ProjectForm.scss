@@ -1,0 +1,21 @@
+.project-form {
+  &__size {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 6.25rem;
+    height: 6.25rem;
+
+    &--small {
+      background-image: url("../../assets/images/small\ team.jpeg");
+    }
+
+    &--medium {
+      background-image: url("../../assets/images/medium\ team.jpeg");
+    }
+
+    &--large {
+      background-image: url("../../assets/images/large\ team.jpeg");
+    }
+  }
+}
