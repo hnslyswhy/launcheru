@@ -14,7 +14,7 @@ const TaskView = (props) => {
     <section className="">
       <div className="">
         <h1 className="">Tasks</h1>
-        <Link to={`/projects/${props.project.id}/addTask`}>
+        <Link to={`/projects/${props.project.id}/addtask`}>
           <FontAwesomeIcon icon={faPlusCircle} size="2x" className="" />
         </Link>
       </div>
@@ -32,7 +32,7 @@ const TaskView = (props) => {
                 ? getBusinessDays(new Date(task.targetDate))
                 : getCalenderDays(new Date(task.targetDate))}
             </p>
-            {/*   {task.teams.length &&
+            {task.teams.length &&
               task.teams.map((teamId) => (
                 <div key={teamId} className="">
                   <img
@@ -44,8 +44,11 @@ const TaskView = (props) => {
                     className=""
                   />
                 </div>
-              ))} */}
-            <Link to={`/projects/${props.project.id}/addTask`}>
+              ))}
+            <Link
+              to={`/projects/${props.project.id}/addtask`}
+              teams={props.project.teams}
+            >
               <FontAwesomeIcon icon={faEdit} size="lg" className="" />
             </Link>
           </div>

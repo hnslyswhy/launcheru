@@ -9,7 +9,7 @@ const TeamView = (props) => {
     <section className="">
       <div className="">
         <p className="">Teams</p>
-        <Link to={`/projects/${props.project.id}/addTeam`}>
+        <Link to={`/projects/${props.project.id}/addteam`}>
           <FontAwesomeIcon icon={faPlusCircle} size="2x" className="" />
         </Link>
       </div>
@@ -25,7 +25,7 @@ const TeamView = (props) => {
                 <div className="">
                   <p>{teamCountDown(team.id, props.project.todos)}</p>
                   <p>{team.role}</p>
-                  <Link to={`/projects/${props.project.id}/addTeam`}>
+                  <Link to={`/projects/${props.project.id}/addteam`}>
                     <p className="">Edit</p>
                   </Link>
                 </div>
