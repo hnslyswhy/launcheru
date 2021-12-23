@@ -2,7 +2,7 @@
   "id": 10,
   "name": "create a launch countdown app",
   "readOnly": false,
-  "size": 3,
+  "size": "medium",
   "launchDate": "01-26-2022",
   "teams": [
     {

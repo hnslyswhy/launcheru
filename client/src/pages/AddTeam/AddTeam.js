@@ -1,15 +1,33 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { addNewTeam } from "../../utilities/apiRequests";
 
 const AddTeam = () => {
+  const [avatar, setAvatar] = useState(null);
+
   const history = useHistory();
+  const params = useParams();
 
   const handleCancel = () => {
     history.goBack();
   };
 
+  const handleFileChange = (e) => {
+    setAvatar(e.target.files[0]);
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    addNewTeam(
+      params.id,
+      avatar,
+      e.target.description.value,
+      e.target.teamName.value,
+      e.target.role.value
+    ).then(() => {
+      history.push(`/project/${params.id}`);
+    });
+    e.target.reset();
   };
 
   return (
@@ -24,15 +42,13 @@ const AddTeam = () => {
           <label htmlFor="teamName" className="">
             Team Name
           </label>
-          <input type="text" className="" id="teamName" name="teamName" />
-        </div>
-
-        <div className="">
-          <label htmlFor="avatar" className="">
-            Team Icon
-            <div></div>
-          </label>
-          <input type="file" id="avatar" />
+          <input
+            type="text"
+            defaultValue="test"
+            className=""
+            id="teamName"
+            name="teamName"
+          />
         </div>
 
         <div className="">
@@ -40,7 +56,9 @@ const AddTeam = () => {
             Role
           </label>
           <select id="role" className="" name="role">
-            <option value="frontend">Frontend</option>
+            <option value="frontend" selected>
+              Frontend
+            </option>
             <option value="backend">Backend</option>
             <option value="design">UX/UI Design</option>
             <option value="billing">Billing Team</option>
@@ -48,14 +66,33 @@ const AddTeam = () => {
           </select>
         </div>
 
-        <section className="">
+        <div className="">
+          <label htmlFor="description" className="">
+            Description
+          </label>
+          <input
+            type="text"
+            className=""
+            defaultValue="test"
+            id="description"
+            name="description"
+          />
+        </div>
+
+        <div className="">
+          <label htmlFor="avatar" className="">
+            Team Avatar
+            <div></div>
+          </label>
+          <input type="file" id="avatar" onChange={handleFileChange} />
+        </div>
+
+        <div className="">
           <button className="" onClick={handleCancel} type="button">
             Cancel
           </button>
-          <button className="" type="button">
-            Save
-          </button>
-        </section>
+          <button className="">Save</button>
+        </div>
       </form>
     </main>
   );

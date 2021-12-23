@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CountdownCal from "../../utilities/CountdownCal";
 import { getBusinessDays, getCalenderDays } from "../../utilities/getDays";
 

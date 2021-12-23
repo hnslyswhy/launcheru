@@ -14,7 +14,7 @@ const TaskView = (props) => {
     <section className="">
       <div className="">
         <h1 className="">Tasks</h1>
-        <Link to={`/projects/${props.project.id}/addtask`}>
+        <Link to={`/project/${props.project.id}/addtask`}>
           <FontAwesomeIcon icon={faPlusCircle} size="2x" className="" />
         </Link>
       </div>
@@ -46,7 +46,7 @@ const TaskView = (props) => {
                 </div>
               ))}
             <Link
-              to={`/projects/${props.project.id}/addtask`}
+              to={`/project/${props.project.id}/addtask`}
               teams={props.project.teams}
             >
               <FontAwesomeIcon icon={faEdit} size="lg" className="" />
