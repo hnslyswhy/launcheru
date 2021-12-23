@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { teamCountDown } from "../../utilities/getDays";
 import { deleteATeam } from "../../utilities/apiRequests";
+import "./TeamView.scss";
 
 const TeamView = (props) => {
   const [teams, setTeams] = useState(props.project.teams);
@@ -19,7 +20,7 @@ const TeamView = (props) => {
     <section className="">
       <div className="">
         <p className="">Teams</p>
-        <Link to={`/project/${props.project.id}/addteam`}>
+        <Link to={`/project/${props.project.id}/teams`}>
           <FontAwesomeIcon icon={faPlusCircle} size="2x" className="" />
         </Link>
       </div>
@@ -30,7 +31,11 @@ const TeamView = (props) => {
             <div key={team.id} className="">
               <h2> {team.name} </h2>
               <div className="">
-                <img src={team.avatar} alt="team icon" className="" />
+                <img
+                  src={team.avatar}
+                  alt="team icon"
+                  className="team__avatar"
+                />
                 <div className="">
                   <p>{team.description}</p>
                   <div className="">

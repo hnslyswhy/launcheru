@@ -10,6 +10,23 @@ const fs = require("fs");
 const projectRouter = express.Router();
 const app = express();
 
+// add new task to target project
+projectRouter.post("/:id/tasks", (req, res) => {
+  const targetId = req.params.id;
+  let projectList = JSON.parse(fs.readFileSync("./data/data.json"));
+  let targetProject = projectList.find((project) => project.id === targetId);
+  if (targetProject) {
+    let currentTasks = targetProject.todos;
+    let newTask = req.body;
+    let updatedTasks = [newTask, ...currentTasks];
+    targetProject.todos = updatedTasks;
+    fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
+    res.status(200).send(updatedTasks);
+  } else {
+    res.status(400).json({ message: "project not found" });
+  }
+});
+
 // delete a team
 projectRouter.delete("/:id/teams/:teamId", (req, res) => {
   console.log(req.params);
@@ -38,7 +55,7 @@ projectRouter.delete("/:id/teams/:teamId", (req, res) => {
 });
 
 //add new team to target project
-projectRouter.post("/:id/addteam", upload.single("avatar"), (req, res) => {
+projectRouter.post("/:id/teams", upload.single("avatar"), (req, res) => {
   const targetId = req.params.id;
   let projectList = JSON.parse(fs.readFileSync("./data/data.json"));
   let targetProject = projectList.find((project) => project.id === targetId);

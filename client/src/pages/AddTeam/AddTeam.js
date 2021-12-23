@@ -55,10 +55,8 @@ const AddTeam = () => {
           <label htmlFor="role" className="">
             Role
           </label>
-          <select id="role" className="" name="role">
-            <option value="frontend" selected>
-              Frontend
-            </option>
+          <select id="role" className="" name="role" defaultValue="backend">
+            <option value="frontend">Frontend</option>
             <option value="backend">Backend</option>
             <option value="design">UX/UI Design</option>
             <option value="billing">Billing Team</option>

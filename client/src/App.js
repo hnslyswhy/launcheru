@@ -14,10 +14,10 @@ function App() {
         <Route path="/project/:id" exact>
           <Project />
         </Route>
-        <Route path="/project/:id/addteam">
+        <Route path="/project/:id/teams">
           <AddTeam />
         </Route>
-        <Route path="/project/:id/addtask">
+        <Route path="/project/:id/tasks">
           <AddTask />
         </Route>
       </Switch>
