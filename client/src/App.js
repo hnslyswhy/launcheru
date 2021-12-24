@@ -11,13 +11,13 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/projects/:id" exact>
+        <Route path="/project/:id" exact>
           <Project />
         </Route>
-        <Route path="/projects/:id/addteam">
+        <Route path="/project/:id/teams">
           <AddTeam />
         </Route>
-        <Route path="/projects/:id/addtask">
+        <Route path="/project/:id/tasks">
           <AddTask />
         </Route>
       </Switch>
