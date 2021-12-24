@@ -10,6 +10,31 @@ const fs = require("fs");
 const projectRouter = express.Router();
 const app = express();
 
+// delete a task
+projectRouter.delete("/:id/tasks/:taskId", (req, res) => {
+  const targetProjectId = req.params.id;
+  const targetTaskId = req.params.taskId;
+  let projectList = JSON.parse(fs.readFileSync("./data/data.json"));
+  let targetProject = projectList.find(
+    (project) => project.id === targetProjectId
+  );
+  let targetTask;
+  if (targetProject) {
+    targetTask = targetProject.todos.find((task) => task.id === targetTaskId);
+    if (targetTask) {
+      targetProject.todos = targetProject.todos.filter(
+        (task) => task.id !== targetTaskId
+      );
+      fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
+      res.status(200).send(targetProject.todos);
+    } else {
+      res.status(400).json({ message: "task not found" });
+    }
+  } else {
+    res.status(400).json({ message: "project not found" });
+  }
+});
+
 // add new task to target project
 projectRouter.post("/:id/tasks", (req, res) => {
   const targetId = req.params.id;
@@ -17,7 +42,7 @@ projectRouter.post("/:id/tasks", (req, res) => {
   let targetProject = projectList.find((project) => project.id === targetId);
   if (targetProject) {
     let currentTasks = targetProject.todos;
-    let newTask = req.body;
+    let newTask = { id: uuidv4(), ...req.body };
     let updatedTasks = [newTask, ...currentTasks];
     targetProject.todos = updatedTasks;
     fs.writeFileSync("./data/data.json", JSON.stringify(projectList));

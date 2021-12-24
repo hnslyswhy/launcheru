@@ -1,1 +1,145 @@
-[{"id":10,"name":"create a launch countdown app","readOnly":false,"size":"medium","launchDate":"01-26-2022","teams":[{"id":1000,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"Shark","role":"backend"},{"id":1001,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"Goldfish","role":"frontend"},{"id":1002,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"turtle","role":"backend"},{"id":1003,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"lion fish","role":"marketing"},{"id":1004,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"seal","role":"frontend"},{"id":1005,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"shrimp","role":"backend"},{"id":1006,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"rock","role":"billing"}],"todos":[{"id":100,"isComplete":false,"isLaunchDay":false,"targetDate":"04-07-2022","teams":[1001,1005],"title":"Finish coding frontend"},{"id":101,"isComplete":false,"isLaunchDay":false,"targetDate":"11-01-2022","teams":[1003,1005],"title":"Do testing"},{"id":103,"isComplete":true,"isLaunchDay":false,"targetDate":"10-31-2021","teams":[1002,1004],"title":"Complete Frontend Design"},{"id":104,"isComplete":false,"isLaunchDay":false,"targetDate":"11-07-2021","teams":[1003],"title":"Finish coding frontend"}]},{"id":"12959702-0e16-413e-9533-0ba93de7f371","name":"hook up","readOnly":false,"size":"medium","launchDate":"2021-12-24","teams":[{"id":"e4b5811b-64cb-44ea-a7ec-5711be0fb0c5","avatar":"http://localhost:8080/uploads/92533b484846391e1ffda79670c16d6c","description":"carrot","name":"bunny","role":"billing"},{"id":"7d9c1ed7-e94d-49fc-9a86-b8aa72ddc4d6","avatar":"http://localhost:8080/uploads/92411c62c0365e84552b387bfd134b32","description":"bones","name":"doggy","role":"backend"}],"todos":[]},{"id":"feaba2aa-1881-4ac1-877e-5e3ac3a1740f","name":"finish hook up","readOnly":true,"size":"medium","launchDate":"2021-12-26","teams":[{"id":"a2b18ce6-c2c8-4c5e-aee9-73a0c02427d4","avatar":"http://localhost:8080/uploads/dc66d19ded67f2761791a0bae968269d","description":"test","name":"test","role":"design"},{"id":"4e8936f6-309e-4cc8-92a0-1538ebe5ed8a","avatar":"http://localhost:8080/uploads/216850ccda711f40b99b345eda313dd1","description":"test","name":"test","role":"backend"}],"todos":[{"isComplete":false,"isLaunchDay":false,"targetDate":"2021-12-24","teams":["4e8936f6-309e-4cc8-92a0-1538ebe5ed8a"],"title":"cook noodle"}]}]
+[
+  {
+    "id": 10,
+    "name": "create a launch countdown app",
+    "readOnly": false,
+    "size": "medium",
+    "launchDate": "01-26-2022",
+    "teams": [
+      {
+        "id": 1000,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "Shark",
+        "role": "backend"
+      },
+      {
+        "id": 1001,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "Goldfish",
+        "role": "frontend"
+      },
+      {
+        "id": 1002,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "turtle",
+        "role": "backend"
+      },
+      {
+        "id": 1003,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "lion fish",
+        "role": "marketing"
+      },
+      {
+        "id": 1004,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "seal",
+        "role": "frontend"
+      },
+      {
+        "id": 1005,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "shrimp",
+        "role": "backend"
+      },
+      {
+        "id": 1006,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "rock",
+        "role": "billing"
+      }
+    ],
+    "todos": [
+      {
+        "id": 100,
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "04-07-2022",
+        "teams": [1001, 1005],
+        "title": "Finish coding frontend"
+      },
+      {
+        "id": 101,
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "11-01-2022",
+        "teams": [1003, 1005],
+        "title": "Do testing"
+      },
+      {
+        "id": 103,
+        "isComplete": true,
+        "isLaunchDay": false,
+        "targetDate": "10-31-2021",
+        "teams": [1002, 1004],
+        "title": "Complete Frontend Design"
+      },
+      {
+        "id": 104,
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "11-07-2021",
+        "teams": [1003],
+        "title": "Finish coding frontend"
+      }
+    ]
+  },
+  {
+    "id": "dffc91e7-f860-4395-a683-52c57408c8a5",
+    "name": "finish dummy server hook up",
+    "readOnly": false,
+    "size": "medium",
+    "launchDate": "2021-12-25",
+    "teams": [
+      {
+        "id": "cf2234ab-a80b-4ca5-8692-d513abe1f949",
+        "avatar": "http://localhost:8080/uploads/b4b798e99d70486b7050dea06f6949d6",
+        "description": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "name": "gold fish",
+        "role": "backend"
+      },
+      {
+        "id": "3fde5b74-ef9a-4322-b668-e870b711da95",
+        "avatar": "http://localhost:8080/uploads/bd2fd23c73cf67b048a3d8a9feb20f37",
+        "description": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "name": "doggy",
+        "role": "design"
+      },
+      {
+        "id": "056b7f2c-9443-4579-872b-0e9af4e1967f",
+        "avatar": "http://localhost:8080/uploads/c9a2784c83e8b610c6f2047b3849fa09",
+        "description": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "name": "shark team",
+        "role": "backend"
+      }
+    ],
+    "todos": [
+      {
+        "id": "8a49794e-bd3d-43e8-9499-84d10b2e5f46",
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "2021-12-27",
+        "teams": [
+          "cf2234ab-a80b-4ca5-8692-d513abe1f949",
+          "056b7f2c-9443-4579-872b-0e9af4e1967f"
+        ],
+        "title": "backend database and server"
+      },
+      {
+        "id": "75e9bf18-865c-4127-9291-3c4a4393dfd8",
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "2021-12-26",
+        "teams": ["cf2234ab-a80b-4ca5-8692-d513abe1f949"],
+        "title": "backend database"
+      }
+    ]
+  }
+]

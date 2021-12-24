@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { deleteATask } from "../../utilities/apiRequests";
 import { getBusinessDays, getCalenderDays } from "../../utilities/getDays";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import "./TaskView.scss";
 
 const TaskView = (props) => {
   const [isBusinessDays, setIsBusinessDays] = useState(true);
   const [tasks, setTasks] = useState(props.project.todos);
   const projectId = useParams().id;
+  console.log(tasks);
 
   const handleToggleBusinessDays = () => {
     setIsBusinessDays(!isBusinessDays);
   };
 
-  const handelDeleteTask = () => {};
+  const handelDeleteTask = async (projectId, taskId) => {
+    let updatedTasks = await deleteATask(projectId, taskId);
+    setTasks(updatedTasks);
+    console.log(tasks);
+  };
 
   return (
     <section className="">
@@ -49,6 +56,7 @@ const TaskView = (props) => {
                 task.teams.map((teamId) => (
                   <div key={teamId} className="">
                     <img
+                      id="team__avatar"
                       src={
                         props.project.teams.find((team) => team.id === teamId)
                           .avatar
