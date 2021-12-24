@@ -1,0 +1,12 @@
+@use "./variables";
+
+@mixin flexbox(
+  $direction: row,
+  $justify-content: flex-start,
+  $align-items: stretch
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}

@@ -1,0 +1,26 @@
+@use "./variables";
+@use "./mixin";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: variables.$primary-black;
+}
+
+button {
+  height: 2.5rem;
+  padding: 0 variables.$pm-base * 8;
+  border-radius: 4px;
+  border: none;
+  background-color: variables.$primary-blue;
+  @include mixin.labels;
+
+  &:hover {
+    cursor: pointer;
+    background-color: variables.$secondary-dark-blue;
+  }
+}
