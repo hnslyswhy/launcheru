@@ -1,1 +1,189 @@
-[{"id":10,"name":"create a launch countdown app","readOnly":false,"size":"medium","launchDate":"01-26-2022","teams":[{"id":1000,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"Shark","role":"backend"},{"id":1001,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"Goldfish","role":"frontend"},{"id":1002,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"turtle","role":"backend"},{"id":1003,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"lion fish","role":"marketing"},{"id":1004,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"seal","role":"frontend"},{"id":1005,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"shrimp","role":"backend"},{"id":1006,"avatar":"","description":"saying something about your team. This is a backend team focusing on ...","name":"rock","role":"billing"}],"todos":[{"id":100,"isComplete":false,"isLaunchDay":false,"targetDate":"04-07-2022","teams":[1001,1005],"title":"Finish coding frontend"},{"id":101,"isComplete":false,"isLaunchDay":false,"targetDate":"11-01-2022","teams":[1003,1005],"title":"Do testing"},{"id":103,"isComplete":true,"isLaunchDay":false,"targetDate":"10-31-2021","teams":[1002,1004],"title":"Complete Frontend Design"},{"id":104,"isComplete":false,"isLaunchDay":false,"targetDate":"11-07-2021","teams":[1003],"title":"Finish coding frontend"}]},{"id":"dffc91e7-f860-4395-a683-52c57408c8a5","name":"finish dummy server hook up","readOnly":false,"size":"medium","launchDate":"2021-12-25","teams":[{"id":"cf2234ab-a80b-4ca5-8692-d513abe1f949","avatar":"http://localhost:8080/uploads/b4b798e99d70486b7050dea06f6949d6","description":"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.","name":"gold fish","role":"backend"},{"id":"3fde5b74-ef9a-4322-b668-e870b711da95","avatar":"http://localhost:8080/uploads/bd2fd23c73cf67b048a3d8a9feb20f37","description":"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.","name":"doggy","role":"design"},{"id":"056b7f2c-9443-4579-872b-0e9af4e1967f","avatar":"http://localhost:8080/uploads/c9a2784c83e8b610c6f2047b3849fa09","description":"is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.","name":"shark team","role":"backend"}],"todos":[{"id":"8a49794e-bd3d-43e8-9499-84d10b2e5f46","isComplete":false,"isLaunchDay":false,"targetDate":"2021-12-27","teams":["cf2234ab-a80b-4ca5-8692-d513abe1f949","056b7f2c-9443-4579-872b-0e9af4e1967f"],"title":"backend database and server"},{"id":"75e9bf18-865c-4127-9291-3c4a4393dfd8","isComplete":false,"isLaunchDay":false,"targetDate":"2021-12-26","teams":["cf2234ab-a80b-4ca5-8692-d513abe1f949"],"title":"backend database"}]},{"id":"969d5a7d-462e-4d85-b7fd-c3ab75e9d075","name":"style the launcheruu","readOnly":false,"size":"small","launchDate":"2021-12-27","teams":[{"id":"09a60c01-66dd-481f-9da0-3c9bf29f81f6","avatar":"http://localhost:8080/uploads/f2c8e11e654f094198191a44de478eab","description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.","name":"baby shark","role":"design"},{"id":"6cc56d4a-61a5-4489-8ec3-9c5bd0660c37","avatar":"http://localhost:8080/uploads/5988e9883df7ced04f54bcd3102a2258","description":"specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,","name":"turtle","role":"frontend"}],"todos":[{"id":"a88dbdfd-3d84-4227-bd2b-054c972750fe","isComplete":false,"isLaunchDay":false,"targetDate":"2021-12-25","teams":["09a60c01-66dd-481f-9da0-3c9bf29f81f6","6cc56d4a-61a5-4489-8ec3-9c5bd0660c37"],"title":"tablet style"},{"id":"8a2d2dd5-15d8-4a12-83d4-098ed6972887","isComplete":false,"isLaunchDay":false,"targetDate":"2021-12-25","teams":["09a60c01-66dd-481f-9da0-3c9bf29f81f6"],"title":"mobil style"}]}]
+[
+  {
+    "id": 10,
+    "name": "create a launch countdown app",
+    "readOnly": false,
+    "size": "medium",
+    "launchDate": "01-26-2022",
+    "teams": [
+      {
+        "id": 1000,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "Shark",
+        "role": "backend"
+      },
+      {
+        "id": 1001,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "Goldfish",
+        "role": "frontend"
+      },
+      {
+        "id": 1002,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "turtle",
+        "role": "backend"
+      },
+      {
+        "id": 1003,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "lion fish",
+        "role": "marketing"
+      },
+      {
+        "id": 1004,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "seal",
+        "role": "frontend"
+      },
+      {
+        "id": 1005,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "shrimp",
+        "role": "backend"
+      },
+      {
+        "id": 1006,
+        "avatar": "",
+        "description": "saying something about your team. This is a backend team focusing on ...",
+        "name": "rock",
+        "role": "billing"
+      }
+    ],
+    "todos": [
+      {
+        "id": 100,
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "04-07-2022",
+        "teams": [1001, 1005],
+        "title": "Finish coding frontend"
+      },
+      {
+        "id": 101,
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "11-01-2022",
+        "teams": [1003, 1005],
+        "title": "Do testing"
+      },
+      {
+        "id": 103,
+        "isComplete": true,
+        "isLaunchDay": false,
+        "targetDate": "10-31-2021",
+        "teams": [1002, 1004],
+        "title": "Complete Frontend Design"
+      },
+      {
+        "id": 104,
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "11-07-2021",
+        "teams": [1003],
+        "title": "Finish coding frontend"
+      }
+    ]
+  },
+  {
+    "id": "dffc91e7-f860-4395-a683-52c57408c8a5",
+    "name": "finish dummy server hook up",
+    "readOnly": false,
+    "size": "medium",
+    "launchDate": "2021-12-25",
+    "teams": [
+      {
+        "id": "cf2234ab-a80b-4ca5-8692-d513abe1f949",
+        "avatar": "http://localhost:8080/uploads/b4b798e99d70486b7050dea06f6949d6",
+        "description": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "name": "gold fish",
+        "role": "backend"
+      },
+      {
+        "id": "3fde5b74-ef9a-4322-b668-e870b711da95",
+        "avatar": "http://localhost:8080/uploads/bd2fd23c73cf67b048a3d8a9feb20f37",
+        "description": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "name": "doggy",
+        "role": "design"
+      },
+      {
+        "id": "056b7f2c-9443-4579-872b-0e9af4e1967f",
+        "avatar": "http://localhost:8080/uploads/c9a2784c83e8b610c6f2047b3849fa09",
+        "description": "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "name": "shark team",
+        "role": "backend"
+      }
+    ],
+    "todos": [
+      {
+        "id": "8a49794e-bd3d-43e8-9499-84d10b2e5f46",
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "2021-12-27",
+        "teams": [
+          "cf2234ab-a80b-4ca5-8692-d513abe1f949",
+          "056b7f2c-9443-4579-872b-0e9af4e1967f"
+        ],
+        "title": "backend database and server"
+      },
+      {
+        "id": "75e9bf18-865c-4127-9291-3c4a4393dfd8",
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "2021-12-26",
+        "teams": ["cf2234ab-a80b-4ca5-8692-d513abe1f949"],
+        "title": "backend database"
+      }
+    ]
+  },
+  {
+    "id": "969d5a7d-462e-4d85-b7fd-c3ab75e9d075",
+    "name": "style the launcheruu",
+    "readOnly": false,
+    "size": "small",
+    "launchDate": "2021-12-26",
+    "teams": [
+      {
+        "id": "09a60c01-66dd-481f-9da0-3c9bf29f81f6",
+        "avatar": "http://localhost:8080/uploads/f2c8e11e654f094198191a44de478eab",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "name": "baby shark",
+        "role": "design"
+      },
+      {
+        "id": "6cc56d4a-61a5-4489-8ec3-9c5bd0660c37",
+        "avatar": "http://localhost:8080/uploads/5988e9883df7ced04f54bcd3102a2258",
+        "description": "specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,",
+        "name": "turtle",
+        "role": "frontend"
+      }
+    ],
+    "todos": [
+      {
+        "id": "a88dbdfd-3d84-4227-bd2b-054c972750fe",
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "2021-12-25",
+        "teams": [
+          "09a60c01-66dd-481f-9da0-3c9bf29f81f6",
+          "6cc56d4a-61a5-4489-8ec3-9c5bd0660c37"
+        ],
+        "title": "tablet style"
+      },
+      {
+        "id": "8a2d2dd5-15d8-4a12-83d4-098ed6972887",
+        "isComplete": false,
+        "isLaunchDay": false,
+        "targetDate": "2021-12-25",
+        "teams": ["09a60c01-66dd-481f-9da0-3c9bf29f81f6"],
+        "title": "mobil style"
+      }
+    ]
+  }
+]
