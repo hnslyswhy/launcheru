@@ -1,0 +1,18 @@
+@use "../../styles/partials/mixin";
+@use "../../styles/partials/variables";
+
+.copy {
+  &__instruction {
+    text-align: center;
+    font-size: small;
+    color: variables.$primary-gray;
+    margin-top: variables.$pm-base * 2;
+  }
+
+  &__succeed {
+    text-align: center;
+    font-size: small;
+    color: variables.$primary-blue;
+    margin-top: variables.$pm-base * 2;
+  }
+}
