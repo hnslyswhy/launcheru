@@ -9,17 +9,16 @@ const Home = () => {
     setIsStarted(!isStarted);
   };
   return (
-    <main className="main">
+    <main className="home ">
       {!isStarted && (
         <div className="home__container">
           <h1 className="home__title">Project Count Down</h1>
           <img className="home__image" src={astronaut} alt="astronaut" />
-          <h2 className="home__start" onClick={handleClick}>
+          <button className="home__start" onClick={handleClick}>
             Start
-          </h2>
+          </button>
         </div>
       )}
-      <ProjectForm /> {/* fpr style purpose only */}
       {isStarted && <ProjectForm />}
     </main>
   );

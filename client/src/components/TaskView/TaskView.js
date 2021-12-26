@@ -3,7 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import { deleteATask } from "../../utilities/apiRequests";
 import { getBusinessDays, getCalenderDays } from "../../utilities/getDays";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlusCircle,
+  faTrashAlt,
+  faHandPointLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import "./TaskView.scss";
 
 const TaskView = (props) => {
@@ -23,9 +27,9 @@ const TaskView = (props) => {
   };
 
   return (
-    <section className="">
-      <div className="">
-        <h1 className="">Tasks</h1>
+    <section className="tasks">
+      <div className="tasks__head">
+        <h2 className="tasks__title">Tasks</h2>
         <Link
           to={{
             pathname: `/project/${props.project.id}/tasks`,
@@ -34,27 +38,56 @@ const TaskView = (props) => {
             },
           }}
         >
-          <FontAwesomeIcon icon={faPlusCircle} size="2x" className="" />
+          <FontAwesomeIcon
+            icon={faPlusCircle}
+            size="2x"
+            className="tasks__add"
+          />
         </Link>
       </div>
 
-      <div>
+      <div className="tasks__container">
         {tasks.length !== 0 &&
           tasks.map((task) => (
-            <div
+            <article
               key={task.id}
-              className={task.isComplete ? "complete" : "progressing"}
+              className={
+                task.isComplete ||
+                getCalenderDays(new Date(task.targetDate)) < 0
+                  ? "tasks__card tasks__card--complete"
+                  : "tasks__card"
+              }
             >
-              <p>{task.title}</p>
-              <p>{task.targetDate}</p>
-              <p onClick={handleToggleBusinessDays}>
-                {isBusinessDays
-                  ? getBusinessDays(new Date(task.targetDate))
-                  : getCalenderDays(new Date(task.targetDate))}
-              </p>
+              <div className="tasks__headline">
+                <h3 className="tasks__title">{task.title}</h3>
+                <FontAwesomeIcon
+                  icon={faTrashAlt}
+                  size="1x"
+                  className="tasks__delete"
+                  onClick={() => handelDeleteTask(projectId, task.id)}
+                />
+              </div>
+              <p className="tasks__date">Target Date: {task.targetDate}</p>
+              <div className="tasks__toggle">
+                <p className="tasks__days" onClick={handleToggleBusinessDays}>
+                  {isBusinessDays
+                    ? `Business Days: ${getBusinessDays(
+                        new Date(task.targetDate)
+                      )} Day(s)`
+                    : `Calender Days: ${getCalenderDays(
+                        new Date(task.targetDate)
+                      )} Day(s)`}
+                </p>
+                <FontAwesomeIcon
+                  icon={faHandPointLeft}
+                  size="1x"
+                  className="tasks__click"
+                  onClick={() => handelDeleteTask(projectId, task.id)}
+                />
+              </div>
               {task.teams.length !== 0 &&
                 task.teams.map((teamId) => (
-                  <div key={teamId} className="">
+                  <div key={teamId} className="tasks__teams">
                     <img
                       id="team__avatar"
                       src={
@@ -62,17 +95,11 @@ const TaskView = (props) => {
                           .avatar
                       }
                       alt="team avatar"
-                      className=""
+                      className="tasks__team"
                     />
                   </div>
                 ))}
-              <FontAwesomeIcon
-                icon={faTrashAlt}
-                size="2x"
-                className=""
-                onClick={() => handelDeleteTask(projectId, task.id)}
-              />
-            </div>
+            </article>
           ))}
       </div>
     </section>

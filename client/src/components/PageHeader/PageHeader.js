@@ -1,9 +1,10 @@
 import React from "react";
+import "./PageHeader.scss";
 
 const PageHeader = (props) => {
   return (
     <section>
-      <h1>{props.name}</h1>
+      <h1 className="project-name">{props.name}</h1>
     </section>
   );
 };

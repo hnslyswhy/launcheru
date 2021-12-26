@@ -1,0 +1,10 @@
+@use "../../styles/partials/mixin";
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables";
+
+.main-box {
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+  padding: variables.$pm-base * 4 0;
+}

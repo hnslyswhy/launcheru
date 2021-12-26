@@ -1,4 +1,74 @@
-#team__avatar {
-  width: 6.25rem;
-  height: 6.25rem;
+@use "../../styles/partials/mixin";
+//@use "../../styles/partials/global";
+@use "../../styles/partials/variables";
+
+.tasks {
+  &__head {
+    padding: 0 variables.$pm-base * 4;
+    @include mixin.flexbox(row, space-between, center);
+  }
+
+  &__add {
+    color: variables.$primary-blue;
+    &:hover,
+    &:active {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+
+  &__container {
+    @include mixin.flexbox(column, center, center);
+  }
+
+  &__card {
+    @include mixin.card;
+    width: 94%;
+    margin: variables.$pm-base * 4 0;
+
+    &--complete {
+      background-color: variables.$primary-gray;
+    }
+  }
+
+  &__headline {
+    @include mixin.flexbox(row, space-between, center);
+  }
+
+  &__title {
+    text-transform: capitalize;
+    padding: variables.$pm-base;
+  }
+
+  &__toggle {
+    @include mixin.flexbox(row, flex-start, center);
+  }
+
+  &__date,
+  &__days {
+    padding: variables.$pm-base;
+  }
+
+  &__delete,
+  &__click {
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+
+  &__teams {
+    @include mixin.flexbox(row, space-around, center);
+    flex-wrap: wrap;
+    display: inline;
+  }
+
+  &__team {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid variables.$primary-black;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    margin: variables.$pm-base;
+  }
 }

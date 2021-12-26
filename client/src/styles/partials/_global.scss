@@ -13,14 +13,45 @@ a {
 
 button {
   height: 2.5rem;
+  font-weight: 700;
   padding: 0 variables.$pm-base * 8;
   border-radius: 4px;
-  border: none;
-  background-color: variables.$primary-blue;
-  @include mixin.labels;
+  border: 1px solid variables.$primary-black;
+  background-color: transparent;
+  color: variables.$primary-gray;
 
   &:hover {
     cursor: pointer;
-    background-color: variables.$secondary-dark-blue;
+    background-color: variables.$primary-blue;
+    border: 1px solid variables.$primary-blue;
+    color: variables.$primary-white;
+  }
+}
+
+input {
+  font-family: inherit;
+  color: variables.$primary-gray;
+  width: 80%;
+  padding: variables.$pm-base * 2 variables.$pm-base * 8;
+  min-width: 15rem;
+  max-width: 25rem;
+  border: transparent;
+  background-color: variables.$primary-white;
+  border-bottom: 2px dotted variables.$primary-black;
+
+  &::placeholder {
+    font-family: inherit;
+    color: variables.$primary-black;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid variables.$primary-blue;
+    border-radius: 4px;
+  }
+
+  &:focus:invalid {
+    outline: none;
+    border: 1px solid #d22d2d;
   }
 }

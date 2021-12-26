@@ -19,7 +19,6 @@ const ProjectForm = () => {
   };
 
   const handleFormSubmit = async (e) => {
-    console.log("hi");
     e.preventDefault();
     let newProject = {
       name: e.target.name.value,
@@ -38,7 +37,7 @@ const ProjectForm = () => {
 
   return (
     <form className="project-form" onSubmit={handleFormSubmit}>
-      <h1 className="project-form__headline"> Launch Your Project</h1>
+      <h1 className="project-form__headline"> Setup Project</h1>
       <div className="project-form__sizes">
         <div
           id="small"
@@ -57,7 +56,17 @@ const ProjectForm = () => {
         ></div>
       </div>
       <div className="project-form__item">
-        <label htmlFor="name">Project Name</label>
+        <div>
+          <label htmlFor="name">Project Name:</label>
+          <FontAwesomeIcon
+            icon={faUserShield}
+            size="lg"
+            className={
+              isSecret ? "project-form__secret-icon" : "project-form__icon"
+            }
+            onClick={handleSecretProject}
+          />
+        </div>
         <input
           id="name"
           name="name"
@@ -65,17 +74,11 @@ const ProjectForm = () => {
           className="project-form__input"
           required
         />
-        <FontAwesomeIcon
-          icon={faUserShield}
-          size="lg"
-          className={
-            isSecret ? "project-form__secret-icon" : "project-form__icon"
-          }
-          onClick={handleSecretProject}
-        />
       </div>
       <div className="project-form__item">
-        <label htmlFor="date">Project Launch Date</label>
+        <label htmlFor="date" className="project-form__date">
+          Project Launch Date:
+        </label>
         <input
           id="date"
           name="date"

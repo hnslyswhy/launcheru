@@ -17,40 +17,47 @@ const TeamView = (props) => {
     setTeams(updatedTeams);
   };
   return (
-    <section className="">
-      <div className="">
-        <p className="">Teams</p>
+    <section className="teams">
+      <div className="teams__head">
+        <h2 className="teams__title">Teams</h2>
         <Link to={`/project/${props.project.id}/teams`}>
-          <FontAwesomeIcon icon={faPlusCircle} size="2x" className="" />
+          <FontAwesomeIcon
+            icon={faPlusCircle}
+            size="2x"
+            className="teams__add"
+          />
         </Link>
       </div>
 
-      <div>
+      <div className="teams__container">
         {teams.length !== 0 &&
           teams.map((team) => (
-            <div key={team.id} className="">
-              <h2> {team.name} </h2>
-              <div className="">
+            <article key={team.id} className="teams__card">
+              <h3 className="teams__name"> {team.name} </h3>
+              <div className="teams__info">
                 <img
                   src={team.avatar}
                   alt="team icon"
-                  className="team__avatar"
+                  className="teams__avatar"
                 />
-                <div className="">
-                  <p>{team.description}</p>
-                  <div className="">
-                    <p>{teamCountDown(team.id, props.project.todos)}</p>
-                    <p>{team.role}</p>
+                <div className="teams__intro">
+                  <p className="teams__countdown">
+                    {teamCountDown(team.id, props.project.todos)}
+                  </p>
+                  <div className="teams__tool">
+                    <span className="teams__role">{team.role}</span>
                     <FontAwesomeIcon
+                      className="teams__delete"
                       icon={faTrashAlt}
-                      size="2x"
+                      size="1x"
                       className=""
                       onClick={() => handelDeleteTeam(projectId, team.id)}
                     />
                   </div>
                 </div>
+                <p className="teams__description">{team.description}</p>
               </div>
-            </div>
+            </article>
           ))}
       </div>
     </section>

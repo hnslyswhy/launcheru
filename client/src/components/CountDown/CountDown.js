@@ -1,6 +1,7 @@
 import React from "react";
 import CountdownCal from "../../utilities/CountdownCal";
 import { getBusinessDays, getCalenderDays } from "../../utilities/getDays";
+import "./CountDown.scss";
 
 const CountDown = (props) => {
   const { hours, minutes, seconds, isTimeUp } = CountdownCal(
@@ -10,21 +11,46 @@ const CountDown = (props) => {
   const days = getCalenderDays(new Date(props.launchDate));
 
   return (
-    <section>
-      <div>
-        <h1>Calendar Days Countdown</h1>
-        <div>
-          <span className="days">{days}</span>
-          <span>:</span>
-          <span className="hours">{hours}</span>
-          <span>:</span>
-          <span className="minutes">{minutes}</span>
-          <span>:</span>
-          <span className="seconds">{seconds}</span>
+    <section className="countdown">
+      <div className="countdown__main">
+        <h1 className="countdown__calendar">Calendar Days </h1>
+        <div className="countdown__details">
+          <div className="countdown__entires">
+            <div className="days">
+              <span className="days__count">{days}</span>
+              <span className="days__notes">Day</span>
+            </div>
+            <span className="countdown__mark">:</span>
+          </div>
+
+          <div className="countdown__entires">
+            <div className="hours">
+              <span className="hours__count">{hours}</span>
+              <span className="hours__notes">Hr</span>
+            </div>
+            <span className="countdown__mark">:</span>
+          </div>
+
+          <div className="countdown__entires">
+            <div className="minutes">
+              <span className="minutes__count">{minutes}</span>
+              <span className="minutes__notes">Min</span>
+            </div>
+            <span className="countdown__mark">:</span>
+          </div>
+
+          <div className="countdown__entires">
+            <div className="seconds">
+              <span className="seconds__count">{seconds}</span>
+              <span className="seconds__notes">Sec</span>
+            </div>
+          </div>
         </div>
       </div>
       <div>
-        <h2>Business Days : {businessDays}</h2>
+        <h2 className="countdown__business">
+          Business Days : {businessDays} Day(s)
+        </h2>
       </div>
     </section>
   );

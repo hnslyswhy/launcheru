@@ -1,0 +1,54 @@
+@use "../../styles/partials/mixin";
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables";
+
+.countdown {
+  background-color: variables.$primary-blue;
+  color: variables.$primary-white;
+  padding: variables.$pm-base * 4;
+  margin: variables.$pm-base * 4 0;
+
+  &__calendar {
+    text-align: center;
+  }
+
+  &__details {
+    @include mixin.flexbox(row, space-around, center);
+    width: 100%;
+    padding: variables.$pm-base * 8 0;
+  }
+  &__entires {
+    @include mixin.flexbox(row, flex-start, flex-start);
+  }
+
+  &__mark {
+    font-size: larger;
+    margin-left: variables.$pm-base * 7;
+  }
+
+  .days,
+  .hours,
+  .minutes,
+  .seconds {
+    @include mixin.flexbox(column, flex-start, flex-end);
+  }
+
+  .days__count,
+  .hours__count,
+  .minutes__count,
+  .seconds__count {
+    font-size: x-large;
+  }
+
+  .days__notes,
+  .hours__notes,
+  .minutes__notes,
+  .seconds__notes {
+    color: variables.$primary-gray;
+  }
+
+  &__business {
+    text-align: center;
+    font-size: medium;
+  }
+}

@@ -5,6 +5,7 @@ import PageHeader from "../../components/PageHeader/PageHeader";
 import CountDown from "../../components/CountDown/CountDown";
 import TeamView from "../../components/TeamView/TeamView";
 import TaskView from "../../components/TaskView/TaskView";
+import "./Project.scss";
 
 const Project = () => {
   const [project, setProject] = useState(null);
@@ -19,7 +20,7 @@ const Project = () => {
   }, [projectId]);
 
   return (
-    <main>
+    <main className="main-box">
       {project && (
         <>
           <PageHeader name={project.name} />

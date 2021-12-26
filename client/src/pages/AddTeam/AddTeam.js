@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { addNewTeam } from "../../utilities/apiRequests";
+import "./AddTeam.scss";
 
 const AddTeam = () => {
   const [avatar, setAvatar] = useState(null);
@@ -31,31 +32,58 @@ const AddTeam = () => {
   };
 
   return (
-    <main className="">
-      <p onClick={handleCancel} className="">
+    <main className="add">
+      <p onClick={handleCancel} className="add__back">
         &lt; Back
       </p>
-      <h1 className=""> Add Team</h1>
+      <h1 className="add__title"> Add Team</h1>
 
-      <form className="" onSubmit={handleFormSubmit}>
-        <div className="">
-          <label htmlFor="teamName" className="">
-            Team Name
+      <form className="team-form" onSubmit={handleFormSubmit}>
+        <div className="team-form__items">
+          <label htmlFor="teamName" className="team-form__label">
+            Team Name:
           </label>
           <input
             type="text"
-            defaultValue="test"
-            className=""
+            className="team-form__input"
             id="teamName"
             name="teamName"
+            required
           />
         </div>
 
-        <div className="">
-          <label htmlFor="role" className="">
-            Role
+        <div className="team-form__items">
+          <label htmlFor="description" className="team-form__label">
+            Description:
           </label>
-          <select id="role" className="" name="role" defaultValue="backend">
+          <input
+            type="text"
+            className="team-form__input"
+            id="description"
+            name="description"
+            required
+          />
+        </div>
+
+        <div className="team-form__items">
+          <label htmlFor="avatar" className="team-form__label">
+            Team Avatar:
+            <div className="team-form__box">
+              <img
+                className="team-form__avatar"
+                src="https://via.placeholder.com/150"
+                alt="avatar"
+              />
+            </div>
+          </label>
+          <input type="file" id="avatar" onChange={handleFileChange} />
+        </div>
+
+        <div className="team-form__role">
+          <label htmlFor="role" className="team-form__label">
+            Role:
+          </label>
+          <select id="role" name="role" required>
             <option value="frontend">Frontend</option>
             <option value="backend">Backend</option>
             <option value="design">UX/UI Design</option>
@@ -64,32 +92,15 @@ const AddTeam = () => {
           </select>
         </div>
 
-        <div className="">
-          <label htmlFor="description" className="">
-            Description
-          </label>
-          <input
-            type="text"
-            className=""
-            defaultValue="test"
-            id="description"
-            name="description"
-          />
-        </div>
-
-        <div className="">
-          <label htmlFor="avatar" className="">
-            Team Avatar
-            <div></div>
-          </label>
-          <input type="file" id="avatar" onChange={handleFileChange} />
-        </div>
-
-        <div className="">
-          <button className="" onClick={handleCancel} type="button">
+        <div className="team-form__buttons">
+          <button
+            className="team-form__cancel"
+            onClick={handleCancel}
+            type="button"
+          >
             Cancel
           </button>
-          <button className="">Save</button>
+          <button className="team-form__save">Save</button>
         </div>
       </form>
     </main>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import { createATask } from "../../utilities/apiRequests";
+import "./AddTask.scss";
 
 const AddTask = (props) => {
   const history = useHistory();
@@ -50,47 +51,63 @@ const AddTask = (props) => {
   };
 
   return (
-    <main className="">
-      <p onClick={handleCancel} className="">
+    <main className="add">
+      <p onClick={handleCancel} className="add__back">
         &lt; Back
       </p>
-      <h1 className=""> Add Task</h1>
+      <h1 className="add__title"> Add Task</h1>
 
-      <form className="" onSubmit={handleFormSubmit}>
-        <div className="">
-          <label htmlFor="task" className="">
-            Task
+      <form className="task-form" onSubmit={handleFormSubmit}>
+        <div className="task-form__items">
+          <label htmlFor="task" className="task-form__label">
+            Task Name:
           </label>
-          <input type="text" className="" name="title" id="task" />
+          <input
+            type="text"
+            className="task-form__input"
+            name="title"
+            id="task"
+          />
         </div>
 
-        <div className="">
-          <p className=""> Team(s): </p>
+        <div className="task-form__items">
+          <label htmlFor="targetDate" className="task-form__label">
+            Target Date:
+          </label>
+          <input
+            type="date"
+            className="task-form__input"
+            name="date"
+            id="targetDate"
+          />
+        </div>
+
+        <div className="task-form__items">
+          <p className=""> Team(s) Involved: </p>
           <div>
             {checkboxData.map((task) => (
-              <div key={task.id}>
+              <div key={task.id} className="task-form__checkbox">
                 <input
                   id={task.name}
+                  className="task-form__checkbox-input"
                   type="checkbox"
                   checked={task.isChecked}
                   onChange={() => {
                     checkboxChangeCheck(task.id);
                   }}
                 />
-                <label htmlFor={task.name}>{task.name}</label>
+                <label
+                  htmlFor={task.name}
+                  className="task-form__checkbox-label"
+                >
+                  {task.name}
+                </label>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="">
-          <label htmlFor="targetDate" className="">
-            Target Date
-          </label>
-          <input type="date" className="" name="date" id="targetDate" />
-        </div>
-
-        <div className="">
+        <div className="task-form__buttons">
           <button className="" onClick={handleCancel} type="button">
             Cancel
           </button>
