@@ -26,6 +26,32 @@ const TaskView = (props) => {
     console.log(tasks);
   };
 
+  const getBusinessDayText = (targetDate) => {
+    let businessDays = getBusinessDays(new Date(targetDate));
+    let businessDaysText;
+    if (businessDays === -1) {
+      businessDaysText = "Business Day: No Time Left";
+    } else if (businessDays === 0) {
+      businessDaysText = "Business Day: < 1 Day Left";
+    } else {
+      businessDaysText = `Business Day: ${businessDays} Days Left`;
+    }
+    return businessDaysText;
+  };
+
+  const getCalenderDayText = (targetDate) => {
+    let calenderDays = getCalenderDays(new Date(targetDate));
+    let calenderDayText;
+    if (calenderDays === -1) {
+      calenderDayText = "Calender Day: No Time Left";
+    } else if (calenderDays === 0) {
+      calenderDayText = "Calender Day: < 1 Day Left";
+    } else {
+      calenderDayText = `Calender Day: ${calenderDays} Days Left`;
+    }
+    return calenderDayText;
+  };
+
   return (
     <section className="tasks">
       <div className="tasks__head">
@@ -46,7 +72,7 @@ const TaskView = (props) => {
         </Link>
       </div>
 
-      <div className="tasks__container">
+      <div className="tasks__container ">
         {tasks.length !== 0 &&
           tasks.map((task) => (
             <article
@@ -69,20 +95,19 @@ const TaskView = (props) => {
               </div>
               <p className="tasks__date">Target Date: {task.targetDate}</p>
               <div className="tasks__toggle">
-                <p className="tasks__days" onClick={handleToggleBusinessDays}>
+                <span
+                  className="tasks__days"
+                  onClick={handleToggleBusinessDays}
+                >
                   {isBusinessDays
-                    ? `Business Days: ${getBusinessDays(
-                        new Date(task.targetDate)
-                      )} Day(s)`
-                    : `Calender Days: ${getCalenderDays(
-                        new Date(task.targetDate)
-                      )} Day(s)`}
-                </p>
+                    ? getBusinessDayText(task.targetDate)
+                    : getCalenderDayText(task.targetDate)}
+                </span>
                 <FontAwesomeIcon
                   icon={faHandPointLeft}
                   size="1x"
                   className="tasks__click"
-                  onClick={() => handelDeleteTask(projectId, task.id)}
+                  onClick={() => handleToggleBusinessDays()}
                 />
               </div>
               {task.teams.length !== 0 &&

@@ -3,6 +3,10 @@
 @use "../../styles/partials/variables";
 
 .teams {
+  margin-top: variables.$pm-base * 8;
+  padding: variables.$pm-base * 4 0;
+  background-color: variables.$secondary-gray;
+
   &__head {
     padding: 0 variables.$pm-base * 4;
     @include mixin.flexbox(row, space-between, center);

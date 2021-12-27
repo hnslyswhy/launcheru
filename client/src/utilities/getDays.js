@@ -10,7 +10,7 @@ import React from "react";
 export function getBusinessDays(aDate) {
   const isTimeUp = isBefore(aDate, new Date());
   if (isTimeUp) {
-    return 0;
+    return -1;
   }
   //console.log(differenceInBusinessDays(aDate, new Date()));
   return differenceInBusinessDays(aDate, new Date());
@@ -20,7 +20,7 @@ export function getBusinessDays(aDate) {
 export function getCalenderDays(aDate) {
   const isTimeUp = isBefore(aDate, new Date());
   if (isTimeUp) {
-    return 0;
+    return -1;
   }
   //console.log(differenceInDays(aDate, new Date()));
   return differenceInDays(aDate, new Date());

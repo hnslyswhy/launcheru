@@ -3,6 +3,9 @@
 @use "../../styles/partials/variables";
 
 .tasks {
+  padding: variables.$pm-base * 4 0;
+  background-color: variables.$secondary-blue;
+
   &__head {
     padding: 0 variables.$pm-base * 4;
     @include mixin.flexbox(row, space-between, center);
@@ -27,7 +30,8 @@
     margin: variables.$pm-base * 4 0;
 
     &--complete {
-      background-color: variables.$primary-gray;
+      background-color: variables.$secondary-gray;
+      opacity: 0.5;
     }
   }
 
@@ -47,6 +51,8 @@
   &__date,
   &__days {
     padding: variables.$pm-base;
+    font-size: small;
+    // color: variables.$primary-gray;
   }
 
   &__delete,
