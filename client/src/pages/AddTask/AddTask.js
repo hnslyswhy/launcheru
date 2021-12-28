@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, useLocation, useParams } from "react-router-dom";
-import { createATask } from "../../utilities/apiRequests";
+import { createATask, editTask } from "../../utilities/apiRequests";
 import "./AddTask.scss";
 
 const AddTask = (props) => {
@@ -9,6 +9,16 @@ const AddTask = (props) => {
   // get teams list from react router Link
   const location = useLocation();
   let teams = location.state.teams;
+  let type = location.state.type;
+  let taskId;
+  let taskTitle;
+  let taskTargetDate;
+  if (type === "edit") {
+    taskId = location.state.task.id;
+    taskTitle = location.state.task.title;
+    taskTargetDate = location.state.task.targetDate;
+  }
+
   let teamList = teams.reduce((acc, cur) => {
     return [...acc, { id: cur.id, name: cur.name, isChecked: false }];
   }, []);
@@ -42,10 +52,23 @@ const AddTask = (props) => {
       teams: neededCheckboxValue,
       title: e.target.title.value,
     };
-    e.target.reset();
-    createATask(params.id, newTask).then(() => {
-      history.push(`/project/${params.id}`);
-    });
+    if (type === "add") {
+      createATask(params.id, newTask).then(() => {
+        history.push(`/project/${params.id}`);
+        e.target.reset();
+      });
+    }
+
+    if (type === "edit") {
+      editTask(params.id, taskId, {
+        targetDate: e.target.date.value,
+        teams: neededCheckboxValue,
+        title: e.target.title.value,
+      }).then(() => {
+        history.push(`/project/${params.id}`);
+        e.target.reset();
+      });
+    }
   };
 
   return (
@@ -53,7 +76,9 @@ const AddTask = (props) => {
       <p onClick={handleCancel} className="add__back">
         &lt; Back
       </p>
-      <h1 className="add__title"> Add Task</h1>
+      <h1 className="add__title">
+        {type === "add" ? "Add Task" : "Edit Task"}
+      </h1>
 
       <form className="task-form" onSubmit={handleFormSubmit}>
         <div className="task-form__items">
@@ -65,6 +90,8 @@ const AddTask = (props) => {
             className="task-form__input"
             name="title"
             id="task"
+            defaultValue={taskTitle}
+            required
           />
         </div>
 
@@ -77,6 +104,8 @@ const AddTask = (props) => {
             className="task-form__input"
             name="date"
             id="targetDate"
+            defaultValue={taskTargetDate}
+            required
           />
         </div>
 

@@ -72,6 +72,12 @@
     text-transform: capitalize;
   }
 
+  &__icon {
+    opacity: 1;
+    margin-right: variables.$pm-base * 4;
+  }
+
+  &__icon,
   &__delete {
     &:hover {
       cursor: pointer;

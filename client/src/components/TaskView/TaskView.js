@@ -51,10 +51,6 @@ const TaskView = (props) => {
     return calenderDayText;
   };
 
-  const handleEdit = () => {
-    console.log("hi");
-  };
-
   return (
     <section className="tasks">
       <div className="tasks__head">
@@ -63,6 +59,7 @@ const TaskView = (props) => {
           to={{
             pathname: `/project/${props.project.id}/tasks`,
             state: {
+              type: "add",
               teams: props.project.teams,
             },
           }}
@@ -90,12 +87,22 @@ const TaskView = (props) => {
               <div className="tasks__headline">
                 <h3 className="tasks__title">{task.title}</h3>
                 <div>
-                  <FontAwesomeIcon
-                    className="tasks__icon"
-                    icon={faPencilAlt}
-                    size="1x"
-                    onClick={handleEdit}
-                  />
+                  <Link
+                    to={{
+                      pathname: `/project/${props.project.id}/tasks`,
+                      state: {
+                        task: task,
+                        type: "edit",
+                        teams: props.project.teams,
+                      },
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      className="tasks__icon"
+                      icon={faPencilAlt}
+                      size="1x"
+                    />
+                  </Link>
                   <FontAwesomeIcon
                     className="tasks__icon"
                     icon={faTrashAlt}

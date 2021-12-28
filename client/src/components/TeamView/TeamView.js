@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlusCircle,
+  faTrashAlt,
+  faPencilAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { teamCountDown } from "../../utilities/getDays";
 import { deleteATeam } from "../../utilities/apiRequests";
 import "./TeamView.scss";
@@ -20,7 +24,14 @@ const TeamView = (props) => {
     <section className="teams">
       <div className="teams__head">
         <h2 className="teams__title">Teams</h2>
-        <Link to={`/project/${props.project.id}/teams`}>
+        <Link
+          to={{
+            pathname: `/project/${props.project.id}/teams`,
+            state: {
+              type: "add",
+            },
+          }}
+        >
           <FontAwesomeIcon
             icon={faPlusCircle}
             size="2x"
@@ -46,13 +57,29 @@ const TeamView = (props) => {
                   </p>
                   <div className="teams__tool">
                     <span className="teams__role">{team.role}</span>
-                    <FontAwesomeIcon
-                      className="teams__delete"
-                      icon={faTrashAlt}
-                      size="1x"
-                      className=""
-                      onClick={() => handelDeleteTeam(projectId, team.id)}
-                    />
+                    <div>
+                      <Link
+                        to={{
+                          pathname: `/project/${props.project.id}/teams`,
+                          state: {
+                            team: team,
+                            type: "edit",
+                          },
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          className="teams__icon"
+                          icon={faPencilAlt}
+                          size="1x"
+                        />
+                      </Link>
+                      <FontAwesomeIcon
+                        className="teams__delete"
+                        icon={faTrashAlt}
+                        size="1x"
+                        onClick={() => handelDeleteTeam(projectId, team.id)}
+                      />
+                    </div>
                   </div>
                 </div>
                 <p className="teams__description">{team.description}</p>

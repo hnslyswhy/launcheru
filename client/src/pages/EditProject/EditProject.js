@@ -46,6 +46,7 @@ const EditProject = () => {
             name="name"
             id="name"
             defaultValue={name}
+            required
           />
         </div>
 
@@ -59,6 +60,7 @@ const EditProject = () => {
             name="launchDate"
             id="launchDate"
             defaultValue={launchDate}
+            required
           />
         </div>
         <div className="project-form__buttons">

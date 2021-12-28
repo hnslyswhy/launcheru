@@ -76,7 +76,7 @@ const AddTeam = () => {
               />
             </div>
           </label>
-          <input type="file" id="avatar" onChange={handleFileChange} />
+          <input type="file" id="avatar" onChange={handleFileChange} required />
         </div>
 
         <div className="team-form__role">

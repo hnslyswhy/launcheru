@@ -55,6 +55,58 @@ export const getTargetProject = async function getAProject(id) {
   return data;
 };
 
+//edit a task info
+export const editTask = async function EditTaskInfo(
+  projectId,
+  taskId,
+  changes
+) {
+  let data;
+  try {
+    let response = await axios.patch(
+      `${process.env.REACT_APP_SERVER_URL}/project/${projectId}/tasks/${taskId}/edit`,
+      changes,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    data = response.data;
+    console.log(data);
+  } catch (e) {
+    console.log(e);
+    alert("something went wrong");
+  }
+  return data;
+};
+
+//edit a team info
+export const editTeam = async function EditTeamInfo(
+  projectId,
+  teamId,
+  changes
+) {
+  let data;
+  try {
+    let response = await axios.patch(
+      `${process.env.REACT_APP_SERVER_URL}/project/${projectId}/teams/${teamId}/edit`,
+      changes,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    data = response.data;
+    console.log(data);
+  } catch (e) {
+    console.log(e);
+    alert("something went wrong");
+  }
+  return data;
+};
+
 // create a new team
 export const addNewTeam = async function createTeam(
   id,
