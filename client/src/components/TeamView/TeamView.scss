@@ -44,7 +44,7 @@
   }
 
   &__avatar {
-    width: 30%;
+    width: 25%;
     width: 6.5rem;
     height: 6.5rem;
   }
@@ -55,7 +55,7 @@
   }
 
   &__info {
-    @include mixin.flexbox(row, center, center);
+    @include mixin.flexbox(row, flex-start, center);
     flex-wrap: wrap;
   }
 

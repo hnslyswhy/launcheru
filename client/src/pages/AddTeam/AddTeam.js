@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import { addNewTeam } from "../../utilities/apiRequests";
+import { useHistory, useParams, useLocation } from "react-router-dom";
+import { addNewTeam, editTeam } from "../../utilities/apiRequests";
 import "./AddTeam.scss";
 
 const AddTeam = () => {
@@ -8,6 +8,20 @@ const AddTeam = () => {
 
   const history = useHistory();
   const params = useParams();
+  const location = useLocation();
+  let type = location.state.type;
+  let teamId;
+  let teamName;
+  let teamDescription;
+  let teamAvatar;
+  let teamRole;
+  if (type === "edit") {
+    teamId = location.state.team.id;
+    teamName = location.state.team.name;
+    teamDescription = location.state.team.description;
+    teamRole = location.state.team.role;
+    teamAvatar = location.state.team.avatar;
+  }
 
   const handleCancel = () => {
     history.goBack();
@@ -17,17 +31,34 @@ const AddTeam = () => {
     setAvatar(e.target.files[0]);
   };
 
+  console.log(avatar);
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    addNewTeam(
-      params.id,
-      avatar,
-      e.target.description.value,
-      e.target.teamName.value,
-      e.target.role.value
-    ).then(() => {
-      history.push(`/project/${params.id}`);
-    });
+    if (type === "add") {
+      addNewTeam(
+        params.id,
+        avatar,
+        e.target.description.value,
+        e.target.name.value,
+        e.target.role.value
+      ).then(() => {
+        history.push(`/project/${params.id}`);
+      });
+    }
+
+    if (type === "edit") {
+      editTeam(
+        params.id,
+        teamId,
+        avatar,
+        e.target.description.value,
+        e.target.name.value,
+        e.target.role.value
+      ).then(() => {
+        history.push(`/project/${params.id}`);
+      });
+    }
     e.target.reset();
   };
 
@@ -36,7 +67,9 @@ const AddTeam = () => {
       <p onClick={handleCancel} className="add__back">
         &lt; Back
       </p>
-      <h1 className="add__title"> Add Team</h1>
+      <h1 className="add__title">
+        {type === "add" ? "Add Team" : "Edit Team"}
+      </h1>
 
       <form className="team-form" onSubmit={handleFormSubmit}>
         <div className="team-form__items">
@@ -47,7 +80,8 @@ const AddTeam = () => {
             type="text"
             className="team-form__input"
             id="teamName"
-            name="teamName"
+            name="name"
+            defaultValue={teamName}
             required
           />
         </div>
@@ -61,6 +95,7 @@ const AddTeam = () => {
             className="team-form__input"
             id="description"
             name="description"
+            defaultValue={teamDescription}
             required
           />
         </div>
@@ -76,14 +111,14 @@ const AddTeam = () => {
               />
             </div>
           </label>
-          <input type="file" id="avatar" onChange={handleFileChange} required />
+          <input type="file" id="avatar" onChange={handleFileChange} />
         </div>
 
         <div className="team-form__role">
           <label htmlFor="role" className="team-form__label">
             Role:
           </label>
-          <select id="role" name="role" required>
+          <select id="role" name="role" required defaultValue={teamRole}>
             <option value="frontend">Frontend</option>
             <option value="backend">Backend</option>
             <option value="design">UX/UI Design</option>

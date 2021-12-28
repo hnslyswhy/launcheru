@@ -85,16 +85,24 @@ export const editTask = async function EditTaskInfo(
 export const editTeam = async function EditTeamInfo(
   projectId,
   teamId,
-  changes
+  teamAvatar,
+  teamDescription,
+  teamName,
+  teamRole
 ) {
   let data;
   try {
+    let formData = new FormData();
+    formData.append("avatar", teamAvatar);
+    formData.append("description", teamDescription);
+    formData.append("name", teamName);
+    formData.append("role", teamRole);
     let response = await axios.patch(
       `${process.env.REACT_APP_SERVER_URL}/project/${projectId}/teams/${teamId}/edit`,
-      changes,
+      formData,
       {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
         },
       }
     );

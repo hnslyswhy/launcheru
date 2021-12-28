@@ -55,7 +55,6 @@ const AddTask = (props) => {
     if (type === "add") {
       createATask(params.id, newTask).then(() => {
         history.push(`/project/${params.id}`);
-        e.target.reset();
       });
     }
 
@@ -66,9 +65,9 @@ const AddTask = (props) => {
         title: e.target.title.value,
       }).then(() => {
         history.push(`/project/${params.id}`);
-        e.target.reset();
       });
     }
+    e.target.reset();
   };
 
   return (
