@@ -6,13 +6,13 @@
     text-align: center;
     font-size: small;
     color: variables.$primary-gray;
-    margin-top: variables.$pm-base * 2;
+    margin-bottom: variables.$pm-base * 4;
   }
 
   &__succeed {
     text-align: center;
     font-size: small;
     color: variables.$primary-blue;
-    margin-top: variables.$pm-base * 2;
+    margin-bottom: variables.$pm-base * 4;
   }
 }

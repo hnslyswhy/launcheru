@@ -5,8 +5,18 @@
 .countdown {
   background-color: variables.$primary-blue;
   color: variables.$primary-white;
-  padding: variables.$pm-base * 4;
-  margin: variables.$pm-base * 4 0;
+  padding: variables.$pm-base * 8 variables.$pm-base * 4;
+
+  &__edit {
+    margin-bottom: variables.$pm-base * 4;
+    color: variables.$primary-black;
+    @include mixin.flexbox(row, center, center);
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
 
   &__success-date {
     font-size: large;
@@ -64,6 +74,6 @@
 
   &__business {
     text-align: center;
-    font-size: medium;
+    font-size: small;
   }
 }

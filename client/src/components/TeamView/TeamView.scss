@@ -3,8 +3,7 @@
 @use "../../styles/partials/variables";
 
 .teams {
-  margin-top: variables.$pm-base * 8;
-  padding: variables.$pm-base * 4 0;
+  padding: variables.$pm-base * 8 0;
   background-color: variables.$secondary-gray;
 
   &__head {
@@ -29,6 +28,14 @@
     @include mixin.card;
     width: 94%;
     margin: variables.$pm-base * 4 0;
+    opacity: 0.8;
+
+    &:hover,
+    &:active {
+      position: relative;
+      top: 2px;
+      opacity: 1;
+    }
   }
 
   &__name {

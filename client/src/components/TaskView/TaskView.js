@@ -7,6 +7,7 @@ import {
   faPlusCircle,
   faTrashAlt,
   faHandPointLeft,
+  faPencilAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "./TaskView.scss";
 
@@ -14,7 +15,6 @@ const TaskView = (props) => {
   const [isBusinessDays, setIsBusinessDays] = useState(true);
   const [tasks, setTasks] = useState(props.project.todos);
   const projectId = useParams().id;
-  console.log(tasks);
 
   const handleToggleBusinessDays = () => {
     setIsBusinessDays(!isBusinessDays);
@@ -23,7 +23,6 @@ const TaskView = (props) => {
   const handelDeleteTask = async (projectId, taskId) => {
     let updatedTasks = await deleteATask(projectId, taskId);
     setTasks(updatedTasks);
-    console.log(tasks);
   };
 
   const getBusinessDayText = (targetDate) => {
@@ -50,6 +49,10 @@ const TaskView = (props) => {
       calenderDayText = `Calender Day: ${calenderDays} Days Left`;
     }
     return calenderDayText;
+  };
+
+  const handleEdit = () => {
+    console.log("hi");
   };
 
   return (
@@ -86,12 +89,21 @@ const TaskView = (props) => {
             >
               <div className="tasks__headline">
                 <h3 className="tasks__title">{task.title}</h3>
-                <FontAwesomeIcon
-                  icon={faTrashAlt}
-                  size="1x"
-                  className="tasks__delete"
-                  onClick={() => handelDeleteTask(projectId, task.id)}
-                />
+                <div>
+                  <FontAwesomeIcon
+                    className="tasks__icon"
+                    icon={faPencilAlt}
+                    size="1x"
+                    onClick={handleEdit}
+                  />
+                  <FontAwesomeIcon
+                    className="tasks__icon"
+                    icon={faTrashAlt}
+                    size="1x"
+                    className="tasks__delete"
+                    onClick={() => handelDeleteTask(projectId, task.id)}
+                  />
+                </div>
               </div>
               <p className="tasks__date">Target Date: {task.targetDate}</p>
               <div className="tasks__toggle">

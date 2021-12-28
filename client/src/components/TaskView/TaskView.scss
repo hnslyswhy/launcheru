@@ -3,7 +3,7 @@
 @use "../../styles/partials/variables";
 
 .tasks {
-  padding: variables.$pm-base * 4 0;
+  padding: variables.$pm-base * 8 0;
   background-color: variables.$secondary-blue;
 
   &__head {
@@ -28,10 +28,24 @@
     @include mixin.card;
     width: 94%;
     margin: variables.$pm-base * 4 0;
+    opacity: 0.9;
+
+    &:hover,
+    &:active {
+      position: relative;
+      top: 2px;
+      opacity: 1;
+    }
 
     &--complete {
       background-color: variables.$secondary-gray;
       opacity: 0.5;
+      &:hover,
+      &:active {
+        position: relative;
+        top: 0;
+        opacity: 0.5;
+      }
     }
   }
 
@@ -48,6 +62,10 @@
     @include mixin.flexbox(row, flex-start, center);
   }
 
+  &__icon {
+    margin: 0 variables.$pm-base * 4;
+  }
+
   &__date,
   &__days {
     padding: variables.$pm-base;
@@ -55,6 +73,7 @@
     // color: variables.$primary-gray;
   }
 
+  &__icon,
   &__delete,
   &__click {
     &:hover {

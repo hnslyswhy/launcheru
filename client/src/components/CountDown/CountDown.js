@@ -8,8 +8,22 @@ const CountDown = (props) => {
   const { hours, minutes, seconds, isTimeUp } = CountdownCal(
     new Date(props.launchDate)
   );
-  const businessDays = getBusinessDays(new Date(props.launchDate));
+  //console.log(new Date(props.launchDate));
+  //console.log(format(new Date(props.launchDate), "yyyy-MM-dd"));
   const days = getCalenderDays(new Date(props.launchDate));
+
+  const getBusinessDayText = (targetDate) => {
+    let businessDays = getBusinessDays(new Date(targetDate));
+    let businessDaysText;
+    if (businessDays === -1) {
+      businessDaysText = "Business Day: No Time Left";
+    } else if (businessDays === 0) {
+      businessDaysText = "Business Day: less than 1 Day Left";
+    } else {
+      businessDaysText = `Business Day: ${businessDays} Days Left`;
+    }
+    return businessDaysText;
+  };
 
   return (
     <>
@@ -24,7 +38,10 @@ const CountDown = (props) => {
       {!isTimeUp && (
         <section className="countdown">
           <div className="countdown__main ">
-            <h1 className="countdown__calendar">Calendar Days </h1>
+            <div className="countdown__edit">
+              <h1>Launch Date: {props.launchDate}</h1>
+            </div>
+            <h2 className="countdown__calendar">Calendar Days </h2>
             <div className="countdown__details">
               <div className="countdown__entires">
                 <div className="days">
@@ -59,9 +76,9 @@ const CountDown = (props) => {
             </div>
           </div>
           <div>
-            <h2 className="countdown__business">
-              Business Days : {businessDays} Day(s)
-            </h2>
+            <p className="countdown__business">
+              {getBusinessDayText(props.launchDate)}
+            </p>
           </div>
         </section>
       )}

@@ -1,5 +1,4 @@
 @use "../../styles/partials/mixin";
-//@use "../../styles/partials/global";
 @use "../../styles/partials/variables";
 
 .project-name {
@@ -7,13 +6,6 @@
   text-align: center;
   text-transform: capitalize;
   position: relative;
-  margin-top: variables.$pm-base * 4;
-
-  &::after {
-    content: "📌";
-    font-size: x-large;
-    position: absolute;
-    right: 40%;
-    top: -20px;
-  }
+  margin-top: variables.$pm-base * 8;
+  margin-bottom: variables.$pm-base * 4;
 }

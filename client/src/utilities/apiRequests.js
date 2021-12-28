@@ -1,5 +1,27 @@
 import axios from "axios";
 
+//edit a project
+export const editProject = async function EditProjectInfo(projectId, changes) {
+  let data;
+  try {
+    let response = await axios.patch(
+      `${process.env.REACT_APP_SERVER_URL}/project/${projectId}/edit`,
+      changes,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    data = response.data;
+    console.log(data);
+  } catch (e) {
+    console.log(e);
+    alert("something went wrong");
+  }
+  return data;
+};
+
 // create a new project
 export const createProject = async function postProject(project) {
   let response;

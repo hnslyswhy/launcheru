@@ -10,6 +10,24 @@ const fs = require("fs");
 const projectRouter = express.Router();
 const app = express();
 
+//edit project name/launchdate
+projectRouter.patch("/:id/edit", (req, res) => {
+  const targetProjectId = req.params.id;
+  let projectList = JSON.parse(fs.readFileSync("./data/data.json"));
+  let targetProject = projectList.find(
+    (project) => project.id === targetProjectId
+  );
+  if (targetProject) {
+    targetProject.name = req.body.name;
+    targetProject.launchDate = req.body.launchDate;
+    console.log(targetProject);
+    fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
+    res.status(200).send(targetProject);
+  } else {
+    res.status(400).json({ message: "project not found" });
+  }
+});
+
 // delete a task
 projectRouter.delete("/:id/tasks/:taskId", (req, res) => {
   const targetProjectId = req.params.id;

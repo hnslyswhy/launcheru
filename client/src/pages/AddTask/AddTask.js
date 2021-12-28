@@ -8,7 +8,6 @@ const AddTask = (props) => {
   const params = useParams();
   // get teams list from react router Link
   const location = useLocation();
-  console.log(location.state);
   let teams = location.state.teams;
   let teamList = teams.reduce((acc, cur) => {
     return [...acc, { id: cur.id, name: cur.name, isChecked: false }];
@@ -43,11 +42,10 @@ const AddTask = (props) => {
       teams: neededCheckboxValue,
       title: e.target.title.value,
     };
-    console.log(newTask);
+    e.target.reset();
     createATask(params.id, newTask).then(() => {
       history.push(`/project/${params.id}`);
     });
-    e.target.reset();
   };
 
   return (

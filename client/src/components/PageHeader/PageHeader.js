@@ -6,7 +6,7 @@ const PageHeader = (props) => {
   return (
     <section>
       <h1 className="project-name">{props.name}</h1>
-      <CopyToBoard link={props.id} />
+      <CopyToBoard link={`http://localhost:3000/project/${props.id}`} />
     </section>
   );
 };
