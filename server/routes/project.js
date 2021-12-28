@@ -20,7 +20,6 @@ projectRouter.patch("/:id/edit", (req, res) => {
   if (targetProject) {
     targetProject.name = req.body.name;
     targetProject.launchDate = req.body.launchDate;
-    console.log(targetProject);
     fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
     res.status(200).send(targetProject);
   } else {
@@ -45,6 +44,33 @@ projectRouter.delete("/:id/tasks/:taskId", (req, res) => {
       );
       fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
       res.status(200).send(targetProject.todos);
+    } else {
+      res.status(400).json({ message: "task not found" });
+    }
+  } else {
+    res.status(400).json({ message: "project not found" });
+  }
+});
+
+//edit a task
+projectRouter.patch("/:id/tasks/:taskId/edit", (req, res) => {
+  const targetProjectId = req.params.id;
+  const targetTaskId = req.params.taskId;
+  let projectList = JSON.parse(fs.readFileSync("./data/data.json"));
+  let targetProject = projectList.find(
+    (project) => project.id === targetProjectId
+  );
+  let targetTask;
+  console.log(req.body);
+  if (targetProject) {
+    targetTask = targetProject.todos.find((task) => task.id === targetTaskId);
+    if (targetTask) {
+      targetTask.title = req.body.title;
+      targetTask.targetDate = req.body.targetDate;
+      targetTask.teams = req.body.teams;
+      console.log(targetTask);
+      fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
+      res.status(200).send(targetTask);
     } else {
       res.status(400).json({ message: "task not found" });
     }
@@ -96,6 +122,38 @@ projectRouter.delete("/:id/teams/:teamId", (req, res) => {
     res.status(400).json({ message: "project not found" });
   }
 });
+
+//edit a team
+projectRouter.patch(
+  "/:id/teams/:teamId/edit",
+  upload.single("avatar"),
+  (req, res) => {
+    const targetProjectId = req.params.id;
+    const targetTeamId = req.params.teamId;
+    let projectList = JSON.parse(fs.readFileSync("./data/data.json"));
+    let targetProject = projectList.find(
+      (project) => project.id === targetProjectId
+    );
+    let targetTeam;
+    if (targetProject) {
+      targetTeam = targetProject.teams.find((team) => team.id === targetTeamId);
+      if (targetTeam) {
+        console.log(req.file);
+        targetTeam.name = req.body.name;
+        targetTeam.role = req.body.role;
+        targetTeam.avatar = `http://localhost:8080/uploads/${req.file.filename}`;
+        targetTeam.description = req.body.description;
+        console.log(targetTeam);
+        fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
+        res.status(200).send(targetTeam);
+      } else {
+        res.status(400).json({ message: "team not found" });
+      }
+    } else {
+      res.status(400).json({ message: "project not found" });
+    }
+  }
+);
 
 //add new team to target project
 projectRouter.post("/:id/teams", upload.single("avatar"), (req, res) => {
