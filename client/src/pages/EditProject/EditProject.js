@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { editProject } from "../../utilities/apiRequests";
+import "./EditProject.scss";
 
 const EditProject = () => {
   const history = useHistory();
@@ -8,7 +9,6 @@ const EditProject = () => {
   let name = location.state.name;
   let launchDate = location.state.launchDate;
   let id = location.state.id;
-  console.log(name, launchDate);
 
   const handleCancel = () => {
     history.goBack();

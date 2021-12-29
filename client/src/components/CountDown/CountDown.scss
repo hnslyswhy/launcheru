@@ -10,7 +10,7 @@
   &__edit {
     margin-bottom: variables.$pm-base * 4;
     color: variables.$primary-black;
-    @include mixin.flexbox(row, center, center);
+    @include mixin.flexbox(column, center, center);
 
     &:hover,
     &:active {

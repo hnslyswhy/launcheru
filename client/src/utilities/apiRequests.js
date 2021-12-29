@@ -97,6 +97,7 @@ export const editTeam = async function EditTeamInfo(
     formData.append("description", teamDescription);
     formData.append("name", teamName);
     formData.append("role", teamRole);
+    console.log(formData);
     let response = await axios.patch(
       `${process.env.REACT_APP_SERVER_URL}/project/${projectId}/teams/${teamId}/edit`,
       formData,

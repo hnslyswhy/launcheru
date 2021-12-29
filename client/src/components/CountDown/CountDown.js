@@ -39,7 +39,8 @@ const CountDown = (props) => {
         <section className="countdown">
           <div className="countdown__main ">
             <div className="countdown__edit">
-              <h1>Launch Date: {props.launchDate}</h1>
+              <h1>Launch Date:</h1>
+              <h2> {props.launchDate}</h2>
             </div>
             <h2 className="countdown__calendar">Calendar Days </h2>
             <div className="countdown__details">

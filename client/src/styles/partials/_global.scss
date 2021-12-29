@@ -28,7 +28,8 @@ button {
   }
 }
 
-input {
+input,
+textarea {
   font-family: inherit;
   color: variables.$primary-gray;
   width: 80%;

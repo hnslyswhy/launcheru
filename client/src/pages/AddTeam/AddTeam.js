@@ -31,8 +31,6 @@ const AddTeam = () => {
     setAvatar(e.target.files[0]);
   };
 
-  console.log(avatar);
-
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (type === "add") {
