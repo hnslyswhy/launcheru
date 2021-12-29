@@ -1,0 +1,31 @@
+@use "../../styles/partials/mixin";
+@use "../../styles/partials/variables";
+
+.footer {
+  width: 100%;
+  padding: variables.$pm-base * 4 variables.$pm-base * 8;
+  position: relative;
+  @include mixin.flexbox(column, center, center);
+
+  @include mixin.tablet {
+    @include mixin.flexbox(row, space-between, center);
+  }
+
+  &__item {
+    margin: variables.$pm-base;
+    &:nth-of-type(2) {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 variables.$pm-base * 4;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

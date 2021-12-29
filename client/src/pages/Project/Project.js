@@ -5,6 +5,7 @@ import PageHeader from "../../components/PageHeader/PageHeader";
 import CountDown from "../../components/CountDown/CountDown";
 import TeamView from "../../components/TeamView/TeamView";
 import TaskView from "../../components/TaskView/TaskView";
+import PageFooter from "../../components/PageFooter/PageFooter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPencilAlt,
@@ -35,46 +36,49 @@ const Project = () => {
   };
 
   return (
-    <main className="main-box">
-      {project && (
-        <>
-          <PageHeader name={project.name} />
-          <div className="main-box__timezone ">
-            <p>{isUTC ? "Show in Local Time" : "Show in UTC Time"}</p>
-            <FontAwesomeIcon
-              icon={faHandPointLeft}
-              size="1x"
-              className="main-box__click"
-              onClick={handleToggleUTC}
-            />
-          </div>
-          <div className="main-box__edit">
-            <p>Edit Project</p>
-            <Link
-              to={{
-                pathname: `/project/${projectId}/edit`,
-                state: {
-                  id: project.id,
-                  name: project.name,
-                  launchDate: project.launchDate,
-                },
-              }}
-            >
+    <>
+      <main className="main-box">
+        {project && (
+          <>
+            <PageHeader name={project.name} />
+            <div className="main-box__timezone ">
+              <p>{isUTC ? "Show in Local Time" : "Show in UTC Time"}</p>
               <FontAwesomeIcon
-                icon={faPencilAlt}
-                className="main-box__click"
+                icon={faHandPointLeft}
                 size="1x"
-                onClick={handleEdit}
+                className="main-box__click"
+                onClick={handleToggleUTC}
               />
-            </Link>
-          </div>
+            </div>
+            <div className="main-box__edit">
+              <p>Edit Project</p>
+              <Link
+                to={{
+                  pathname: `/project/${projectId}/edit`,
+                  state: {
+                    id: project.id,
+                    name: project.name,
+                    launchDate: project.launchDate,
+                  },
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faPencilAlt}
+                  className="main-box__click"
+                  size="1x"
+                  onClick={handleEdit}
+                />
+              </Link>
+            </div>
 
-          <CountDown launchDate={project.launchDate} />
-          <TeamView project={project} />
-          <TaskView project={project} />
-        </>
-      )}
-    </main>
+            <CountDown launchDate={project.launchDate} />
+            <TeamView project={project} />
+            <TaskView project={project} />
+          </>
+        )}
+      </main>
+      <PageFooter />
+    </>
   );
 };
 
