@@ -2,17 +2,19 @@
 @use "../../styles/partials/variables";
 
 .copy {
-  &__instruction {
+  &__instruction,
+  &__succeed {
     text-align: center;
     font-size: small;
     color: variables.$primary-gray;
     margin-bottom: variables.$pm-base * 4;
+
+    @include mixin.tablet {
+      font-size: larger;
+    }
   }
 
   &__succeed {
-    text-align: center;
-    font-size: small;
     color: variables.$primary-blue;
-    margin-bottom: variables.$pm-base * 4;
   }
 }

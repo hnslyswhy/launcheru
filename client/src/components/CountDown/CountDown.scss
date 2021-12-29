@@ -6,6 +6,9 @@
   background-color: variables.$primary-blue;
   color: variables.$primary-white;
   padding: variables.$pm-base * 8 variables.$pm-base * 4;
+  @include mixin.tablet {
+    padding: variables.$pm-base * 12 variables.$pm-base * 4;
+  }
 
   &__edit {
     margin-bottom: variables.$pm-base * 4;
@@ -63,6 +66,9 @@
   .minutes__count,
   .seconds__count {
     font-size: x-large;
+    @include mixin.tablet {
+      font-size: 1.7rem;
+    }
   }
 
   .days__notes,
@@ -75,5 +81,8 @@
   &__business {
     text-align: center;
     font-size: small;
+    @include mixin.tablet {
+      font-size: 1.5rem;
+    }
   }
 }

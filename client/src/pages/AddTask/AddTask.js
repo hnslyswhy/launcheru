@@ -110,7 +110,7 @@ const AddTask = (props) => {
 
         <div className="task-form__items">
           <p className=""> Team(s) Involved: </p>
-          <div>
+          <div className="task-form__check-container">
             {checkboxData.map((task) => (
               <div key={task.id} className="task-form__checkbox">
                 <input

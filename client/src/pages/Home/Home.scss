@@ -1,5 +1,4 @@
 @use "../../styles/partials/mixin";
-//@use "../../styles/partials/global";
 @use "../../styles/partials/variables";
 
 .home {
@@ -7,6 +6,10 @@
   height: 100vh;
   padding: variables.$pm-base * 4 0;
   background-color: variables.$primary-white;
+
+  @include mixin.tablet {
+    padding: variables.$pm-base * 12 0;
+  }
 
   &__container {
     @include mixin.flexbox(column, center, center);
@@ -16,6 +19,10 @@
     text-align: center;
     margin-bottom: variables.$pm-base * 4;
     color: variables.$primary-black;
+
+    @include mixin.tablet {
+      font-size: 2.5rem;
+    }
   }
 
   &__image {

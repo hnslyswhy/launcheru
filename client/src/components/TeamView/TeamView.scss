@@ -5,6 +5,9 @@
 .teams {
   padding: variables.$pm-base * 8 0;
   background-color: variables.$secondary-gray;
+  @include mixin.tablet {
+    padding: variables.$pm-base * 12 0;
+  }
 
   &__head {
     padding: 0 variables.$pm-base * 4;
@@ -13,6 +16,11 @@
 
   &__add {
     color: variables.$primary-blue;
+
+    @include mixin.tablet {
+      font-size: 3rem;
+    }
+
     &:hover,
     &:active {
       cursor: pointer;
@@ -30,6 +38,11 @@
     margin: variables.$pm-base * 4 0;
     opacity: 0.8;
 
+    @include mixin.tablet {
+      width: 90%;
+      padding: variables.$pm-base * 4;
+    }
+
     &:hover,
     &:active {
       position: relative;
@@ -44,14 +57,20 @@
   }
 
   &__avatar {
-    width: 25%;
     width: 6.5rem;
     height: 6.5rem;
+    @include mixin.tablet {
+      width: 8rem;
+      height: 8rem;
+    }
   }
 
   &__intro {
     width: 60%;
     margin-left: variables.$pm-base * 2;
+    @include mixin.tablet {
+      width: 79%;
+    }
   }
 
   &__info {
@@ -79,6 +98,10 @@
 
   &__icon,
   &__delete {
+    @include mixin.tablet {
+      font-size: 1.4rem;
+    }
+
     &:hover {
       cursor: pointer;
       opacity: 0.7;

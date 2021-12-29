@@ -9,11 +9,18 @@
 
   &__headline {
     text-align: center;
+    @include mixin.tablet {
+      font-size: 2.5rem;
+    }
   }
 
   &__sizes {
     @include mixin.flexbox(column, center, center);
     margin-bottom: variables.$pm-base * 2;
+
+    @include mixin.tablet {
+      margin: variables.$pm-base * 6 0;
+    }
   }
 
   &__size {
@@ -25,6 +32,11 @@
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     margin: variables.$pm-base;
+
+    @include mixin.tablet {
+      width: 15.625rem;
+      height: 10.375rem;
+    }
 
     &--small {
       background-image: url("../../assets/images/small\ team.jpeg");
@@ -59,5 +71,9 @@
 
   &__button {
     margin-top: variables.$pm-base * 4;
+
+    @include mixin.tablet {
+      margin-top: variables.$pm-base * 12;
+    }
   }
 }

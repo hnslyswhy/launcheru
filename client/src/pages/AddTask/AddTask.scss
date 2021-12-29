@@ -7,9 +7,15 @@
   height: 100vh;
   padding: variables.$pm-base * 4;
   background-color: variables.$primary-white;
+  @include mixin.tablet {
+    padding: variables.$pm-base * 8;
+  }
 
   &__back {
     color: variables.$primary-blue;
+    @include mixin.tablet {
+      font-size: 1.5rem;
+    }
     &:hover,
     &:active {
       cursor: pointer;
@@ -26,14 +32,32 @@
 .task-form {
   &__items {
     margin-bottom: variables.$pm-base * 6;
+    @include mixin.tablet {
+      width: 100%;
+      @include mixin.flexbox(row, space-between, center);
+      margin-bottom: variables.$pm-base * 12;
+    }
   }
 
   &__input {
     width: 100%;
+    @include mixin.tablet {
+      width: 75%;
+    }
+  }
+
+  &__check-container {
+    @include mixin.tablet {
+      width: 75%;
+      @include mixin.flexbox(row, space-between, center);
+    }
   }
 
   &__checkbox {
     @include mixin.flexbox(row, flex-start, center);
+    @include mixin.tablet {
+      width: 100%;
+    }
 
     &-input {
       width: 10%;
@@ -49,5 +73,8 @@
   &__buttons {
     margin-top: variables.$pm-base * 12;
     @include mixin.flexbox(row, space-between, center);
+    @include mixin.tablet {
+      margin-top: variables.$pm-base * 30;
+    }
   }
 }

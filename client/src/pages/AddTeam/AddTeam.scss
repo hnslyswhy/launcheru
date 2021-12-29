@@ -6,6 +6,9 @@
   height: 100vh;
   padding: variables.$pm-base * 4;
   background-color: variables.$primary-white;
+  @include mixin.tablet {
+    padding: variables.$pm-base * 8;
+  }
 
   &__back {
     color: variables.$primary-blue;
@@ -13,6 +16,9 @@
     &:active {
       cursor: pointer;
       opacity: 0.8;
+    }
+    @include mixin.tablet {
+      font-size: 1.5rem;
     }
   }
 
@@ -25,14 +31,26 @@
 .team-form {
   &__items {
     margin-bottom: variables.$pm-base * 4;
+    @include mixin.tablet {
+      width: 100%;
+      @include mixin.flexbox(row, space-between, center);
+      margin-bottom: variables.$pm-base * 8;
+    }
   }
 
   &__input {
     width: 100%;
+    @include mixin.tablet {
+      width: 75%;
+    }
   }
 
   &__label {
     margin-bottom: variables.$pm-base * 2;
+    @include mixin.tablet {
+      width: 25%;
+      margin-bottom: 0;
+    }
   }
 
   &__box {
@@ -55,6 +73,10 @@
   &__role {
     @include mixin.flexbox(column, flex-start, flex-start);
     margin-bottom: variables.$pm-base * 4;
+    @include mixin.tablet {
+      @include mixin.flexbox(row, space-between, center);
+      margin-bottom: variables.$pm-base * 8;
+    }
   }
 
   #role {
@@ -63,6 +85,10 @@
     border-radius: 4px;
     cursor: pointer;
     font-family: inherit;
+
+    @include mixin.tablet {
+      width: 75%;
+    }
 
     &:focus,
     &:hover {
@@ -74,5 +100,8 @@
   &__buttons {
     margin-top: variables.$pm-base * 8;
     @include mixin.flexbox(row, space-between, center);
+    @include mixin.tablet {
+      margin-top: variables.$pm-base * 30;
+    }
   }
 }

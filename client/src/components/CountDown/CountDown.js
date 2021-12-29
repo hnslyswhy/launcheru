@@ -39,7 +39,7 @@ const CountDown = (props) => {
         <section className="countdown">
           <div className="countdown__main ">
             <div className="countdown__edit">
-              <h1>Launch Date:</h1>
+              <h2>Launch Date:</h2>
               <h2> {props.launchDate}</h2>
             </div>
             <h2 className="countdown__calendar">Calendar Days </h2>
@@ -77,9 +77,9 @@ const CountDown = (props) => {
             </div>
           </div>
           <div>
-            <p className="countdown__business">
+            <h3 className="countdown__business">
               {getBusinessDayText(props.launchDate)}
-            </p>
+            </h3>
           </div>
         </section>
       )}

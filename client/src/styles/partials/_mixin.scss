@@ -31,3 +31,16 @@
   background-color: white;
   padding: 5px 10px;
 }
+
+// responsive
+@mixin desktop {
+  @media (min-width: variables.$desktop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: variables.$tablet) {
+    @content;
+  }
+}

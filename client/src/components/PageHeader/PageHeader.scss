@@ -6,6 +6,11 @@
   text-align: center;
   text-transform: capitalize;
   position: relative;
-  margin-top: variables.$pm-base * 8;
-  margin-bottom: variables.$pm-base * 4;
+  padding-top: variables.$pm-base * 8;
+  padding-bottom: variables.$pm-base * 4;
+
+  @include mixin.tablet {
+    padding: variables.$pm-base * 12 variables.$pm-base * 4;
+    padding-bottom: variables.$pm-base * 4;
+  }
 }

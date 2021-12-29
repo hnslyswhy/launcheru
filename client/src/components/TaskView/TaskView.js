@@ -133,7 +133,6 @@ const TaskView = (props) => {
                 task.teams.map((teamId) => (
                   <div key={teamId} className="tasks__teams">
                     <img
-                      id="team__avatar"
                       src={
                         props.project.teams.find((team) => team.id === teamId)
                           .avatar
