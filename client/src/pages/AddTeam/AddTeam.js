@@ -62,80 +62,81 @@ const AddTeam = () => {
 
   return (
     <main className="add">
-      <p onClick={handleCancel} className="add__back">
-        &lt; Back
-      </p>
-      <h1 className="add__title">
-        {type === "add" ? "Add Team" : "Edit Team"}
-      </h1>
+      <div className="add__container">
+        <p onClick={handleCancel} className="add__back">
+          &lt; Back
+        </p>
+        <h1 className="add__title">
+          {type === "add" ? "Add Team" : "Edit Team"}
+        </h1>
 
-      <form className="team-form" onSubmit={handleFormSubmit}>
-        <div className="team-form__items">
-          <label htmlFor="teamName" className="team-form__label">
-            Team Name:
-          </label>
-          <input
-            type="text"
-            className="team-form__input"
-            id="teamName"
-            name="name"
-            defaultValue={teamName}
-            required
-          />
-        </div>
+        <form className="team-form" onSubmit={handleFormSubmit}>
+          <div className="team-form__items">
+            <label htmlFor="teamName" className="team-form__label">
+              Team Name:
+            </label>
+            <input
+              type="text"
+              className="team-form__input"
+              id="teamName"
+              name="name"
+              defaultValue={teamName}
+              required
+            />
+          </div>
 
-        <div className="team-form__items">
-          <label htmlFor="description" className="team-form__label">
-            Description:
-          </label>
-          <input
-            type="text"
-            className="team-form__input"
-            id="description"
-            name="description"
-            defaultValue={teamDescription}
-            required
-          />
-        </div>
+          <div className="team-form__items">
+            <label htmlFor="description" className="team-form__label">
+              Description:
+            </label>
+            <textarea
+              className="team-form__input"
+              id="description"
+              name="description"
+              defaultValue={teamDescription}
+              required
+            />
+          </div>
 
-        <div className="team-form__items">
-          <label htmlFor="avatar" className="team-form__label">
-            Team Avatar:
-            <div className="team-form__box">
-              <img
-                className="team-form__avatar"
-                src="https://via.placeholder.com/150"
-                alt="avatar"
-              />
-            </div>
-          </label>
-          <input type="file" id="avatar" onChange={handleFileChange} />
-        </div>
+          <div className="team-form__items">
+            <label htmlFor="avatar" className="team-form__label">
+              Team Avatar:
+              <div className="team-form__box">
+                <img
+                  className="team-form__avatar"
+                  src="https://via.placeholder.com/150"
+                  alt="avatar"
+                />
+              </div>
+            </label>
+            <input type="file" id="avatar" onChange={handleFileChange} />
+          </div>
 
-        <div className="team-form__role">
-          <label htmlFor="role" className="team-form__label">
-            Role:
-          </label>
-          <select id="role" name="role" required defaultValue={teamRole}>
-            <option value="frontend">Frontend</option>
-            <option value="backend">Backend</option>
-            <option value="design">UX/UI Design</option>
-            <option value="billing">Billing Team</option>
-            <option value="marketing">Marketing Team</option>
-          </select>
-        </div>
+          <div className="team-form__role">
+            <label htmlFor="role" className="team-form__label">
+              Role:
+            </label>
+            <select id="role" name="role" required defaultValue={teamRole}>
+              <option value="frontend">Frontend</option>
+              <option value="backend">Backend</option>
+              <option value="design">UX/UI Design</option>
+              <option value="billing">Billing Team</option>
+              <option value="marketing">Marketing Team</option>
+            </select>
+          </div>
 
-        <div className="team-form__buttons">
-          <button
-            className="team-form__cancel"
-            onClick={handleCancel}
-            type="button"
-          >
-            Cancel
-          </button>
-          <button className="team-form__save">Save</button>
-        </div>
-      </form>
+          <div className="team-form__buttons">
+            <button
+              className="team-form__cancel"
+              onClick={handleCancel}
+              type="button"
+            >
+              Cancel
+            </button>
+            <button className="team-form__save">Save</button>
+          </div>
+        </form>
+      </div>
     </main>
   );
 };

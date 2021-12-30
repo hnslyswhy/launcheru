@@ -6,8 +6,14 @@
   background-color: variables.$primary-blue;
   color: variables.$primary-white;
   padding: variables.$pm-base * 8 variables.$pm-base * 4;
+  @include mixin.flexbox(column, center, center);
   @include mixin.tablet {
     padding: variables.$pm-base * 12 variables.$pm-base * 4;
+  }
+
+  &__main {
+    width: 100%;
+    max-width: 48rem;
   }
 
   &__edit {

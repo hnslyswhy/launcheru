@@ -37,3 +37,18 @@ export function teamCountDown(teamid, todoList) {
   //console.log(max(dates));
   return max(dates).toUTCString().slice(0, 16);
 }
+
+export function createDate(num) {
+  let postDate = new Date(num);
+  let postMonth = postDate.getUTCMonth();
+  let postDay = postDate.getUTCDate();
+  let postYear = postDate.getUTCFullYear();
+  let postHours = postDate.getUTCHours();
+  let postMins = postDate.getUTCMinutes();
+  postHours = postHours.toString().padStart(2, "0");
+  postMins = postMins.toString().padStart(2, "0");
+  postMonth = (postMonth + 1).toString().padStart(2, "0");
+  postDay = postDay.toString().padStart(2, "0"); //str.padStart(targetLength, padString)
+  postDate = `${postYear}-${postMonth}-${postDay} ${postHours}:${postMins}`;
+  return postDate;
+}

@@ -72,74 +72,76 @@ const AddTask = (props) => {
 
   return (
     <main className="add">
-      <p onClick={handleCancel} className="add__back">
-        &lt; Back
-      </p>
-      <h1 className="add__title">
-        {type === "add" ? "Add Task" : "Edit Task"}
-      </h1>
+      <div className="add__container">
+        <p onClick={handleCancel} className="add__back">
+          &lt; Back
+        </p>
+        <h1 className="add__title">
+          {type === "add" ? "Add Task" : "Edit Task"}
+        </h1>
 
-      <form className="task-form" onSubmit={handleFormSubmit}>
-        <div className="task-form__items">
-          <label htmlFor="task" className="task-form__label">
-            Task Name:
-          </label>
-          <input
-            type="text"
-            className="task-form__input"
-            name="title"
-            id="task"
-            defaultValue={taskTitle}
-            required
-          />
-        </div>
-
-        <div className="task-form__items">
-          <label htmlFor="targetDate" className="task-form__label">
-            Target Date:
-          </label>
-          <input
-            type="date"
-            className="task-form__input"
-            name="date"
-            id="targetDate"
-            defaultValue={taskTargetDate}
-            required
-          />
-        </div>
-
-        <div className="task-form__items">
-          <p className=""> Team(s) Involved: </p>
-          <div className="task-form__check-container">
-            {checkboxData.map((task) => (
-              <div key={task.id} className="task-form__checkbox">
-                <input
-                  id={task.name}
-                  className="task-form__checkbox-input"
-                  type="checkbox"
-                  checked={task.isChecked}
-                  onChange={() => {
-                    checkboxChangeCheck(task.id);
-                  }}
-                />
-                <label
-                  htmlFor={task.name}
-                  className="task-form__checkbox-label"
-                >
-                  {task.name}
-                </label>
-              </div>
-            ))}
+        <form className="task-form" onSubmit={handleFormSubmit}>
+          <div className="task-form__items">
+            <label htmlFor="task" className="task-form__label">
+              Task Name:
+            </label>
+            <input
+              type="text"
+              className="task-form__input"
+              name="title"
+              id="task"
+              defaultValue={taskTitle}
+              required
+            />
           </div>
-        </div>
 
-        <div className="task-form__buttons">
-          <button className="" onClick={handleCancel} type="button">
-            Cancel
-          </button>
-          <button className="">Save</button>
-        </div>
-      </form>
+          <div className="task-form__items">
+            <label htmlFor="targetDate" className="task-form__label">
+              Target Date:
+            </label>
+            <input
+              type="date"
+              className="task-form__input"
+              name="date"
+              id="targetDate"
+              defaultValue={taskTargetDate}
+              required
+            />
+          </div>
+
+          <div className="task-form__items">
+            <p className=""> Team(s) Involved: </p>
+            <div className="task-form__check-container">
+              {checkboxData.map((task) => (
+                <div key={task.id} className="task-form__checkbox">
+                  <input
+                    id={task.name}
+                    className="task-form__checkbox-input"
+                    type="checkbox"
+                    checked={task.isChecked}
+                    onChange={() => {
+                      checkboxChangeCheck(task.id);
+                    }}
+                  />
+                  <label
+                    htmlFor={task.name}
+                    className="task-form__checkbox-label"
+                  >
+                    {task.name}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="task-form__buttons">
+            <button className="" onClick={handleCancel} type="button">
+              Cancel
+            </button>
+            <button className="">Save</button>
+          </div>
+        </form>
+      </div>
     </main>
   );
 };

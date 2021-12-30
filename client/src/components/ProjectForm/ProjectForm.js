@@ -24,10 +24,15 @@ const ProjectForm = () => {
       name: e.target.name.value,
       readOnly: isSecret,
       size: projectSize,
-      launchDate: e.target.date.value,
+      launchDate: new Date(`${e.target.date.value}T23:59`),
       teams: [],
       todos: [],
     };
+
+    console.log(newProject.launchDate.toString());
+    console.log(newProject.launchDate.toUTCString());
+    console.log(newProject.launchDate.toLocaleDateString());
+    console.log(new Date(newProject.launchDate));
 
     let project = await createProject(newProject);
     let projectId = project.id;

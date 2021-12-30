@@ -19,6 +19,8 @@ function CountdownCal(aDate) {
     return { days: 0, hours: 0, minutes: 0, seconds: 0, isTimeUp: true };
   }
 
+  // console.log(now);
+  //console.log(aDate);
   const { years, months, days, hours, minutes, seconds } = intervalToDuration({
     start: now,
     end: aDate,

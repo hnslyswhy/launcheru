@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import CountdownCal from "../../utilities/CountdownCal";
 import { getBusinessDays, getCalenderDays } from "../../utilities/getDays";
 import congrats from "../../assets/images/congrats.gif";
+import { format } from "date-fns";
+import { createDate } from "../../utilities/getDays";
 import "./CountDown.scss";
 
 const CountDown = (props) => {
-  const { hours, minutes, seconds, isTimeUp } = CountdownCal(
+  const [isUTC, setIsUTC] = useState(false);
+  const { days, hours, minutes, seconds, isTimeUp } = CountdownCal(
     new Date(props.launchDate)
   );
-  //console.log(new Date(props.launchDate));
-  //console.log(format(new Date(props.launchDate), "yyyy-MM-dd"));
-  const days = getCalenderDays(new Date(props.launchDate));
+  let localeDate = format(new Date(props.launchDate), "yyyy-MM-dd HH:mm");
+  let utcDate = createDate(props.launchDate);
 
   const getBusinessDayText = (targetDate) => {
     let businessDays = getBusinessDays(new Date(targetDate));
@@ -23,6 +25,10 @@ const CountDown = (props) => {
       businessDaysText = `Business Day: ${businessDays} Days Left`;
     }
     return businessDaysText;
+  };
+
+  const handleToggleUTC = () => {
+    setIsUTC(!isUTC);
   };
 
   return (
@@ -40,7 +46,10 @@ const CountDown = (props) => {
           <div className="countdown__main ">
             <div className="countdown__edit">
               <h2>Launch Date:</h2>
-              <h2> {props.launchDate}</h2>
+              <h2> {isUTC ? utcDate : localeDate}</h2>
+              <p onClick={handleToggleUTC}>
+                {isUTC ? "Show in Local Time" : "Show in UTC Time"}
+              </p>
             </div>
             <h2 className="countdown__calendar">Calendar Days </h2>
             <div className="countdown__details">

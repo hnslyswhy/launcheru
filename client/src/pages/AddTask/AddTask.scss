@@ -7,11 +7,25 @@
   height: 100vh;
   padding: variables.$pm-base * 4;
   background-color: variables.$primary-white;
+  @include mixin.flexbox(column, space-between, center);
+
+  @include mixin.flexbox(column, center, center);
+
+  &__container {
+    width: 100%;
+    max-width: 48rem;
+    position: relative;
+    @include mixin.flexbox(column, center, center);
+  }
+
   @include mixin.tablet {
     padding: variables.$pm-base * 8;
   }
 
   &__back {
+    position: absolute;
+    left: variables.$pm-base;
+    top: 0;
     color: variables.$primary-blue;
     @include mixin.tablet {
       font-size: 1.5rem;
@@ -21,11 +35,17 @@
       cursor: pointer;
       opacity: 0.8;
     }
+    @include mixin.tablet {
+      font-size: 1.5rem;
+    }
   }
 
   &__title {
     text-align: center;
     margin: variables.$pm-base * 4;
+    @include mixin.tablet {
+      margin-top: variables.$pm-base * 16;
+    }
   }
 }
 

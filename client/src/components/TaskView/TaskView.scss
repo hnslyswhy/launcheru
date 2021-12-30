@@ -5,11 +5,14 @@
 .tasks {
   padding: variables.$pm-base * 8 0;
   background-color: variables.$secondary-blue;
+  @include mixin.flexbox(column, center, center);
   @include mixin.tablet {
     padding: variables.$pm-base * 12 0;
   }
 
   &__head {
+    width: 100%;
+    max-width: 48rem;
     padding: 0 variables.$pm-base * 4;
     @include mixin.flexbox(row, space-between, center);
   }
@@ -30,16 +33,19 @@
 
   &__container {
     @include mixin.flexbox(column, center, center);
-    @include mixin.desktop {
+    width: 100%;
+    max-width: 48rem;
+    /* @include mixin.desktop {
       @include mixin.flexbox(row, space-between, center);
       flex-wrap: wrap;
       padding: 0 variables.$pm-base * 8;
-    }
+    } */
   }
 
   &__card {
     @include mixin.card;
     width: 94%;
+
     margin: variables.$pm-base * 4 0;
     opacity: 0.9;
 
@@ -47,13 +53,13 @@
       width: 90%;
       padding: variables.$pm-base * 4;
     }
-
+    /* 
     @include mixin.desktop {
       width: 45%;
       height: 18vw;
       overflow: scroll;
       padding: variables.$pm-base * 4;
-    }
+    } */
 
     &:hover,
     &:active {

@@ -15,21 +15,14 @@ import "./Project.scss";
 
 const Project = () => {
   const [project, setProject] = useState(null);
-  const [isUTC, setIsUTC] = useState(true);
-
   const params = useParams();
   const projectId = params.id;
-  let projectData;
 
   useEffect(() => {
     getTargetProject(projectId).then((projectData) => {
       setProject(projectData);
     });
   }, [projectId]);
-
-  const handleToggleUTC = () => {
-    setIsUTC(!isUTC);
-  };
 
   const handleEdit = () => {
     console.log("hi");
@@ -41,15 +34,6 @@ const Project = () => {
         {project && (
           <>
             <PageHeader name={project.name} />
-            <div className="main-box__timezone ">
-              <p>{isUTC ? "Show in Local Time" : "Show in UTC Time"}</p>
-              <FontAwesomeIcon
-                icon={faHandPointLeft}
-                size="1x"
-                className="main-box__click"
-                onClick={handleToggleUTC}
-              />
-            </div>
             <div className="main-box__edit">
               <p>Edit Project</p>
               <Link

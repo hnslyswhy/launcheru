@@ -1,5 +1,4 @@
 @use "../../styles/partials/mixin";
-//@use "../../styles/partials/global";
 @use "../../styles/partials/variables";
 
 .project-form {
@@ -41,6 +40,11 @@
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     margin: variables.$pm-base;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
 
     @include mixin.tablet {
       width: 15.625rem;
