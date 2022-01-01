@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, useParams, useLocation } from "react-router-dom";
 import { addNewTeam, editTeam } from "../../utilities/apiRequests";
 import "./AddTeam.scss";
 
 const AddTeam = () => {
   const [avatar, setAvatar] = useState(null);
+  const [image, setImage] = useState(null);
 
   const history = useHistory();
   const params = useParams();
@@ -15,6 +16,7 @@ const AddTeam = () => {
   let teamDescription;
   let teamAvatar;
   let teamRole;
+
   if (type === "edit") {
     teamId = location.state.team.id;
     teamName = location.state.team.name;
@@ -23,12 +25,17 @@ const AddTeam = () => {
     teamAvatar = location.state.team.avatar;
   }
 
+  useEffect(() => {
+    setImage(teamAvatar);
+  }, [teamAvatar]);
+
   const handleCancel = () => {
     history.goBack();
   };
 
   const handleFileChange = (e) => {
     setAvatar(e.target.files[0]);
+    setImage(URL.createObjectURL(e.target.files[0]));
   };
 
   const handleFormSubmit = (e) => {
@@ -104,7 +111,7 @@ const AddTeam = () => {
               <div className="team-form__box">
                 <img
                   className="team-form__avatar"
-                  src="https://via.placeholder.com/150"
+                  src={image ? image : "https://via.placeholder.com/150"}
                   alt="avatar"
                 />
               </div>

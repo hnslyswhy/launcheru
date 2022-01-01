@@ -61,15 +61,16 @@ projectRouter.patch("/:id/tasks/:taskId/edit", (req, res) => {
     (project) => project.id === targetProjectId
   );
   let targetTask;
-  console.log(req.body);
+  console.log(req.body.teams);
   if (targetProject) {
     targetTask = targetProject.todos.find((task) => task.id === targetTaskId);
     if (targetTask) {
       targetTask.isComplete = req.body.isComplete;
       targetTask.title = req.body.title;
       targetTask.targetDate = req.body.targetDate;
-      targetTask.teams = req.body.teams;
-      console.log(targetTask);
+      if (req.body.teams.length !== 0) {
+        targetTask.teams = req.body.teams;
+      }
       fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
       res.status(200).send(targetTask);
     } else {
@@ -99,7 +100,6 @@ projectRouter.post("/:id/tasks", (req, res) => {
 
 // delete a team
 projectRouter.delete("/:id/teams/:teamId", (req, res) => {
-  console.log(req.params);
   const targetProjectId = req.params.id;
   const targetTeamId = req.params.teamId;
   let projectList = JSON.parse(fs.readFileSync("./data/data.json"));
@@ -114,7 +114,6 @@ projectRouter.delete("/:id/teams/:teamId", (req, res) => {
         (team) => team.id !== targetTeamId
       );
       fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
-      console.log(targetProject.teams);
       res.status(200).send(targetProject.teams);
     } else {
       res.status(400).json({ message: "team not found" });
@@ -142,7 +141,9 @@ projectRouter.patch(
         console.log(req.file);
         targetTeam.name = req.body.name;
         targetTeam.role = req.body.role;
-        targetTeam.avatar = `http://localhost:8080/uploads/${req.file.filename}`;
+        if (req.file) {
+          targetTeam.avatar = `http://localhost:8080/uploads/${req.file.filename}`;
+        }
         targetTeam.description = req.body.description;
         console.log(targetTeam);
         fs.writeFileSync("./data/data.json", JSON.stringify(projectList));

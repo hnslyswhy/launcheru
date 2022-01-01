@@ -14,7 +14,6 @@ export const editProject = async function EditProjectInfo(projectId, changes) {
       }
     );
     data = response.data;
-    console.log(data);
   } catch (e) {
     console.log(e);
     alert("something went wrong");
@@ -107,7 +106,6 @@ export const editTeam = async function EditTeamInfo(
       }
     );
     data = response.data;
-    console.log(data);
   } catch (e) {
     console.log(e);
     alert("something went wrong");
@@ -157,7 +155,6 @@ export const deleteATeam = async function deleteTeam(projectId, teamId) {
       `${process.env.REACT_APP_SERVER_URL}/project/${projectId}/teams/${teamId}`
     );
     data = response.data;
-    console.log(data);
   } catch (e) {
     console.log(e);
     alert("something went wrong");
@@ -174,7 +171,6 @@ export const createATask = async function addTask(projectId, newTask) {
       newTask
     );
     data = response.data;
-    console.log(data);
   } catch (e) {
     console.log(e);
     alert("something went wrong");
@@ -190,7 +186,6 @@ export const deleteATask = async function deleteTask(projectId, taskId) {
       `${process.env.REACT_APP_SERVER_URL}/project/${projectId}/tasks/${taskId}`
     );
     data = response.data;
-    console.log(data);
   } catch (e) {
     console.log(e);
     alert("something went wrong");

@@ -4,7 +4,6 @@
 
 .add {
   width: 100%;
-  height: 100vh;
   padding: variables.$pm-base * 4;
   background-color: variables.$primary-white;
   @include mixin.flexbox(column, space-between, center);
