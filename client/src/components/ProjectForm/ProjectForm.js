@@ -28,11 +28,11 @@ const ProjectForm = () => {
       teams: [],
       todos: [],
     };
-
+    /* 
     console.log(newProject.launchDate.toString());
     console.log(newProject.launchDate.toUTCString());
     console.log(newProject.launchDate.toLocaleDateString());
-    console.log(new Date(newProject.launchDate));
+    console.log(new Date(newProject.launchDate)); */
 
     let project = await createProject(newProject);
     let projectId = project.id;

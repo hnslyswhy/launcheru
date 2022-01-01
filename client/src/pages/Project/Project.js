@@ -24,10 +24,6 @@ const Project = () => {
     });
   }, [projectId]);
 
-  const handleEdit = () => {
-    console.log("hi");
-  };
-
   return (
     <>
       <main className="main-box">
@@ -50,7 +46,6 @@ const Project = () => {
                   icon={faPencilAlt}
                   className="main-box__click"
                   size="1x"
-                  onClick={handleEdit}
                 />
               </Link>
             </div>

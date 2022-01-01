@@ -45,13 +45,15 @@ const AddTask = (props) => {
         neededCheckboxValue.push(item.id);
       }
     });
+
     let newTask = {
-      isComplete: false,
+      isComplete: e.target.status.value === "true",
       isLaunchDay: false,
       targetDate: e.target.date.value,
       teams: neededCheckboxValue,
       title: e.target.title.value,
     };
+
     if (type === "add") {
       createATask(params.id, newTask).then(() => {
         history.push(`/project/${params.id}`);
@@ -60,6 +62,7 @@ const AddTask = (props) => {
 
     if (type === "edit") {
       editTask(params.id, taskId, {
+        isComplete: e.target.status.value === "true",
         targetDate: e.target.date.value,
         teams: neededCheckboxValue,
         title: e.target.title.value,
@@ -107,6 +110,37 @@ const AddTask = (props) => {
               defaultValue={taskTargetDate}
               required
             />
+          </div>
+
+          <div className="task-form__items">
+            <p>Task Status:</p>
+            <div className="task-form__checkbox">
+              <input
+                type="radio"
+                className="task-form__checkbox-input"
+                name="status"
+                value="false"
+                id="complete"
+                defaultChecked
+                required
+              />
+              <label htmlFor="complete" className="task-form__label">
+                In Progress
+              </label>
+            </div>
+            <div className="task-form__checkbox">
+              <input
+                type="radio"
+                className="task-form__checkbox-input"
+                name="status"
+                value="true"
+                id="progressing"
+                required
+              />
+              <label htmlFor="progressing" className="task-form__label">
+                Complete
+              </label>
+            </div>
           </div>
 
           <div className="task-form__items">

@@ -73,7 +73,6 @@ export const editTask = async function EditTaskInfo(
       }
     );
     data = response.data;
-    console.log(data);
   } catch (e) {
     console.log(e);
     alert("something went wrong");

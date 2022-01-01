@@ -65,6 +65,7 @@ projectRouter.patch("/:id/tasks/:taskId/edit", (req, res) => {
   if (targetProject) {
     targetTask = targetProject.todos.find((task) => task.id === targetTaskId);
     if (targetTask) {
+      targetTask.isComplete = req.body.isComplete;
       targetTask.title = req.body.title;
       targetTask.targetDate = req.body.targetDate;
       targetTask.teams = req.body.teams;

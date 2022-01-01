@@ -11,8 +11,11 @@ const CountDown = (props) => {
   const { days, hours, minutes, seconds, isTimeUp } = CountdownCal(
     new Date(props.launchDate)
   );
-  let localeDate = format(new Date(props.launchDate), "yyyy-MM-dd HH:mm");
+  //let localeDate = format(new Date(props.launchDate), "yyyy-MM-dd HH:mm");
+  let localeDate = `${props.launchDate} 00:00`;
+  // console.log(props.launchDate);
   let utcDate = createDate(props.launchDate);
+  //console.log(utcDate);
 
   const getBusinessDayText = (targetDate) => {
     let businessDays = getBusinessDays(new Date(targetDate));

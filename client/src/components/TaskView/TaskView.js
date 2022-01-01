@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { deleteATask } from "../../utilities/apiRequests";
-import { getBusinessDays, getCalenderDays } from "../../utilities/getDays";
+import {
+  getBusinessDays,
+  getCalenderDays,
+  getFullDayDifference,
+} from "../../utilities/getDays";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlusCircle,
@@ -26,12 +30,16 @@ const TaskView = (props) => {
   };
 
   const getBusinessDayText = (targetDate) => {
-    let businessDays = getBusinessDays(new Date(targetDate));
+    let businessDays = getBusinessDays(new Date(`${targetDate}T23:59`));
+    //console.log(targetDate);
+    //console.log(new Date(`${targetDate}T23:59`));
     let businessDaysText;
     if (businessDays === -1) {
       businessDaysText = "Business Day: No Time Left";
     } else if (businessDays === 0) {
-      businessDaysText = "Business Day: < 1 Day Left";
+      businessDaysText = "Business Day: 0 Day Left";
+    } else if (businessDays === 1) {
+      businessDaysText = "Business Day:  1 Day Left";
     } else {
       businessDaysText = `Business Day: ${businessDays} Days Left`;
     }
@@ -39,12 +47,17 @@ const TaskView = (props) => {
   };
 
   const getCalenderDayText = (targetDate) => {
-    let calenderDays = getCalenderDays(new Date(targetDate));
+    let calenderDays = getCalenderDays(new Date(`${targetDate}T23:59`));
+    //console.log(targetDate);
+    //console.log(new Date(`${targetDate}T23:59`));
+    //console.log(new Date());
     let calenderDayText;
     if (calenderDays === -1) {
       calenderDayText = "Calender Day: No Time Left";
     } else if (calenderDays === 0) {
-      calenderDayText = "Calender Day: < 1 Day Left";
+      calenderDayText = "Calender Day: 0 Day Left";
+    } else if (calenderDays === 1) {
+      calenderDayText = "Calender Day: 1 Day Left";
     } else {
       calenderDayText = `Calender Day: ${calenderDays} Days Left`;
     }
@@ -79,8 +92,9 @@ const TaskView = (props) => {
               key={task.id}
               className={
                 task.isComplete ||
-                getCalenderDays(new Date(task.targetDate)) < 0
-                  ? "tasks__card tasks__card--complete"
+                getFullDayDifference(new Date(`${task.targetDate}T23:59`)) ===
+                  -1
+                  ? "tasks__card  tasks__card--complete"
                   : "tasks__card"
               }
             >

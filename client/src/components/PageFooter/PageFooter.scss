@@ -12,7 +12,7 @@
   }
 
   &__item {
-    margin: variables.$pm-base variables.$pm-base * 22;
+    margin: variables.$pm-base variables.$pm-base * 15;
     &:nth-of-type(2) {
       &:hover {
         cursor: pointer;

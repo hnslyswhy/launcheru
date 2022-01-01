@@ -1,10 +1,20 @@
 import {
   differenceInBusinessDays,
+  differenceInCalendarDays,
   differenceInDays,
   isBefore,
   max,
 } from "date-fns";
-import React from "react";
+
+//get full days difference
+export function getFullDayDifference(aDate) {
+  const isTimeUp = isBefore(aDate, new Date());
+  if (isTimeUp) {
+    return -1;
+  }
+  //console.log(differenceInBusinessDays(aDate, new Date()));
+  return differenceInDays(aDate, new Date());
+}
 
 //get business days
 export function getBusinessDays(aDate) {
@@ -23,7 +33,7 @@ export function getCalenderDays(aDate) {
     return -1;
   }
   //console.log(differenceInDays(aDate, new Date()));
-  return differenceInDays(aDate, new Date());
+  return differenceInCalendarDays(aDate, new Date());
 }
 
 // get team countdonw
@@ -38,17 +48,23 @@ export function teamCountDown(teamid, todoList) {
   return max(dates).toUTCString().slice(0, 16);
 }
 
-export function createDate(num) {
-  let postDate = new Date(num);
+export function createDate(day) {
+  // passed in as local time already, when go through new Date(), was treated as utc
+  let postDate = new Date(day);
+  //console.log(postDate);
+  // console.log(day);
   let postMonth = postDate.getUTCMonth();
   let postDay = postDate.getUTCDate();
   let postYear = postDate.getUTCFullYear();
   let postHours = postDate.getUTCHours();
   let postMins = postDate.getUTCMinutes();
-  postHours = postHours.toString().padStart(2, "0");
-  postMins = postMins.toString().padStart(2, "0");
-  postMonth = (postMonth + 1).toString().padStart(2, "0");
-  postDay = postDay.toString().padStart(2, "0"); //str.padStart(targetLength, padString)
-  postDate = `${postYear}-${postMonth}-${postDay} ${postHours}:${postMins}`;
+  let configHours = postHours.toString().padStart(2, "0");
+  let configMins = postMins.toString().padStart(2, "0");
+  let configMonth = (postMonth + 1).toString().padStart(2, "0");
+  let configDay = postDay.toString().padStart(2, "0"); //str.padStart(targetLength, padString)
+  //console.log(postYear);
+  //console.log(configDay);
+  //console.log(configMonth);
+  postDate = `${postYear}-${configMonth}-${configDay} ${configHours}:${configMins}`;
   return postDate;
 }
