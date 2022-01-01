@@ -50,9 +50,9 @@ export function teamCountDown(teamid, todoList) {
 
 export function createDate(day) {
   // passed in as local time already, when go through new Date(), was treated as utc
-  let postDate = new Date(day);
+  let postDate = new Date(`${day}T23:59`);
   //console.log(postDate);
-  // console.log(day);
+  //console.log(day);
   let postMonth = postDate.getUTCMonth();
   let postDay = postDate.getUTCDate();
   let postYear = postDate.getUTCFullYear();
