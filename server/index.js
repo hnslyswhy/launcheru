@@ -11,9 +11,7 @@ app.use(cors());
 
 app.use("/project", projectRouter);
 
-app.listen(process.env.SERVER_URL, () =>
-  console.log("🚀 Launching on PORT 8080 ")
-);
+app.listen(process.env.PORT, () => console.log("🚀 Launching on PORT 8080 "));
 
 /******************* mongo starts***************************/
 /* const { MongoClient } = require("mongodb");
