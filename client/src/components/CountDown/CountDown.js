@@ -9,7 +9,7 @@ import "./CountDown.scss";
 const CountDown = (props) => {
   const [isUTC, setIsUTC] = useState(false);
   const { days, hours, minutes, seconds, isTimeUp } = CountdownCal(
-    new Date(`${props.launchDate}T23:59`)
+    new Date(`${props.launchDate}`)
   );
   //let localeDate = format(new Date(props.launchDate), "yyyy-MM-dd HH:mm");
   let localeDate = `${props.launchDate} 23:59`;

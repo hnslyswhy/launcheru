@@ -6,7 +6,7 @@
   height: 100vh;
   padding: variables.$pm-base * 4 0;
   background-color: variables.$primary-white;
-  overflow: hidden;
+  overflow: scroll;
 
   @include mixin.tablet {
     padding-top: variables.$pm-base * 12;
@@ -37,6 +37,9 @@
 
   &__image {
     width: 100%;
+    @include mixin.tablet {
+      width: 60%;
+    }
     @include mixin.desktop {
       width: 40%;
     }

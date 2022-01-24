@@ -1,14 +1,41 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 //for upload files
+const aws = require("aws-sdk");
 const multer = require("multer");
-const upload = multer({ dest: "./public/uploads" });
+const multerS3 = require("multer-s3");
 //for fake data
 const projectData = require("../data/data.json");
 const fs = require("fs");
+require("dotenv").config();
 
 const projectRouter = express.Router();
 const app = express();
+const s3 = new aws.S3({
+    endpoint: process.env.SPACES_ENDPOINT,
+    region: "us-east-1",
+    accessKeyId: process.env.SPACES_KEY,
+    secretAccessKey: process.env.SPACES_SECRET
+})
+
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'happyaviationenglish/launcheru/teamicons',
+    acl: function (req, file, cb) {
+      cb(null, "public-read");
+    },
+    ContentType: function (req, file, cb) {
+      cb(null, file.mimeType);
+    },
+    metadata: function (req, file, cb) {
+      cb(null, { fieldName: file.originalname, "Content-Type": file.mimetype });
+    },
+    key: function (req, file, cb) {
+      cb(null, Date.now().toString() + file.originalname);
+    }
+  })
+});
 
 //edit project name/launchdate
 projectRouter.patch("/:id/edit", (req, res) => {
@@ -138,14 +165,12 @@ projectRouter.patch(
     if (targetProject) {
       targetTeam = targetProject.teams.find((team) => team.id === targetTeamId);
       if (targetTeam) {
-        console.log(req.file);
         targetTeam.name = req.body.name;
         targetTeam.role = req.body.role;
         if (req.file) {
-          targetTeam.avatar = `http://localhost:8080/uploads/${req.file.filename}`;
+           targetTeam.avatar = `https://happyaviationenglish.sfo3.digitaloceanspaces.com/launcheru/teamicons/${req.file.key}`; 
         }
         targetTeam.description = req.body.description;
-        console.log(targetTeam);
         fs.writeFileSync("./data/data.json", JSON.stringify(projectList));
         res.status(200).send(targetTeam);
       } else {
@@ -164,7 +189,7 @@ projectRouter.post("/:id/teams", upload.single("avatar"), (req, res) => {
   let targetProject = projectList.find((project) => project.id === targetId);
   let newTeam = {
     id: uuidv4(),
-    avatar: `http://localhost:8080/uploads/${req.file.filename}`,
+    avatar: `https://happyaviationenglish.sfo3.digitaloceanspaces.com/launcheru/teamicons/${req.file.key}`, 
     description: req.body.description,
     name: req.body.name,
     role: req.body.role,
