@@ -17,7 +17,7 @@ https://happyaviationenglish.sfo3.digitaloceanspaces.com/videos/Launcheruu.mp4
 
 **Client:**  React.Js, React Hooks, React Router, Axios, Sass, REST API 
 
-**Server:**  NodeJS, Express, Nodemon, Passport, Passport-google-oauth20, Helmet, Morgan
+**Server:**  NodeJS, Express, Nodemon
 
 
 ## Installation
